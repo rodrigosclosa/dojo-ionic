@@ -1,5 +1,11 @@
 angular.module('starter.controllers', [])
 
+.controller('TestCtrl', function($scope, userService)) {
+    userService.getUsers().then(function(users){
+		$scope.users = users;
+	});            
+})
+
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {

@@ -1,5 +1,16 @@
 angular.module('starter.services', [])
 
+//TEST
+.factory('UserService', function(){
+    return {
+        getUsers: function(){
+			return $http.get('https://randomuser.me/api/?results=10').then(function(response){
+				return response.data.results;
+			});
+		}
+    }
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

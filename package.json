@@ -1,7 +1,7 @@
 {
   "name": "cit-market",
   "version": "1.1.1",
-  "description": "CI&T - Market",
+  "description": "cit-market: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -23,7 +23,6 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "android"
   ]
 }

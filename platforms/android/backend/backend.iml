@@ -43,7 +43,10 @@
     <orderEntry type="library" exported="" name="appengine-endpoints-1.9.32" level="project" />
     <orderEntry type="library" exported="" name="appengine-endpoints-deps-1.9.32" level="project" />
     <orderEntry type="library" exported="" name="servlet-api-2.5" level="project" />
+    <orderEntry type="library" exported="" name="objectify-5.1.10" level="project" />
+    <orderEntry type="library" exported="" name="json-20090211" level="project" />
     <orderEntry type="library" exported="" name="appengine-api-1.0-sdk-1.9.32" level="project" />
+    <orderEntry type="library" exported="" name="guava-18.0" level="project" />
     <orderEntry type="library" exported="" name="backend.backend-android-endpoints" level="project" />
   </component>
 </module>

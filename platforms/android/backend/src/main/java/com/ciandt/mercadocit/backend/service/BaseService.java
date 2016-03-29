@@ -17,12 +17,10 @@ public class BaseService {
     public BaseService() {
         baseDao = new BaseDao();
     }
-
     
     public List<Base> list() {
         return baseDao.listAll();
     }
-
     
     public List<Base> list(String nome) throws NotFoundException {
         List<Base> list = baseDao.listByProperty("nome", nome);
@@ -33,7 +31,6 @@ public class BaseService {
 
         return list;
     }
-
     
     public Base getById(Long id) throws NotFoundException {
         Base item = baseDao.getByKey(id);
@@ -44,7 +41,6 @@ public class BaseService {
 
         return item;
     }
-
     
     public void insert(Base item) throws ConflictException, NotFoundException {
         if(item == null)
@@ -65,7 +61,6 @@ public class BaseService {
 
         baseDao.insert(item);
     }
-
     
     public void update(Base item) throws ConflictException, NotFoundException {
         if(item == null)
@@ -76,7 +71,6 @@ public class BaseService {
         {
             throw new ConflictException("Nome do usuário não informado.");
         }
-
 
         Base u = baseDao.getById(item.getId());
 
@@ -94,7 +88,6 @@ public class BaseService {
         baseDao.update(item);
     }
 
-    
     public void remove(long id) throws ConflictException, NotFoundException {
         Base item = baseDao.getByKey(id);
 

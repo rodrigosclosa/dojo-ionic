@@ -33,6 +33,16 @@ public class PredioService {
         return list;
     }
 
+    public List<Predio> listByBase(Long id) throws NotFoundException {
+        List<Predio> list = predioDao.listByProperty("idBase", id);
+
+        if(list == null || list.size() < 1) {
+            throw new NotFoundException("Predio nao encontrado");
+        }
+
+        return list;
+    }
+
 
     public Predio getById(Long id) throws NotFoundException {
         Predio item = predioDao.getByKey(id);

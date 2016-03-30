@@ -18,13 +18,13 @@ import java.util.List;
  * Created by gsanchez on 24/03/2016.
  */
 @Api(
-        name = "predio",
-        version = "v1",
-        namespace = @ApiNamespace(
-                ownerDomain = "endpoint.backend.mercadocit.ciandt.com",
-                ownerName = "endpoint.backend.mercadocit.ciandt.com",
-                packagePath = ""
-        )
+    name = "predio",
+    version = "v1",
+    namespace = @ApiNamespace(
+            ownerDomain = "endpoint.backend.mercadocit.ciandt.com",
+            ownerName = "endpoint.backend.mercadocit.ciandt.com",
+            packagePath = ""
+    )
 )
 public class PredioEndpoint {
 
@@ -52,7 +52,7 @@ public class PredioEndpoint {
     @ApiMethod(name = "getPrediosByBase", path = "predios/{base}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Predio> getPrediosByBase(@Named("base") String Nomebase) throws NotFoundException {
         List<Base> base = baseService.list(Nomebase);
-        return PredioService.list(base.get(0).getNome());
+        return PredioService.listByBase(base.get(0).getId());
     }
 
     @ApiMethod(name = "insertPredio", path = "predio", httpMethod = ApiMethod.HttpMethod.POST)

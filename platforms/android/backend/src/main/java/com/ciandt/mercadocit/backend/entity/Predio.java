@@ -1,9 +1,12 @@
 package com.ciandt.mercadocit.backend.entity;
 
+import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.OnLoad;
 
 import javax.annotation.Nullable;
 
@@ -29,6 +32,9 @@ public class Predio {
     @Index
     private Long idBase;
 
+    @Ignore
+    private Objectify ofy = ObjectifyService.ofy();
+
     public Predio() {
     }
 
@@ -37,6 +43,13 @@ public class Predio {
         this.nome = nome;
         this.icone = icone;
         this.idBase = idBase;
+    }
+
+    @OnLoad
+    void onLoad() {
+        if(this.idBase != null){
+            this.base = ofy.load().type(Base.class).id(this.idBase).now();
+        }
     }
 
     public Long getId() {

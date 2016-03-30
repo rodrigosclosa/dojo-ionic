@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public class Usuario {
 
     @Id
-    private Flag.Long id;
+    private Long id;
 
     @Index
     private String email;

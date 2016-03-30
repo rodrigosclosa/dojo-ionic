@@ -1,5 +1,14 @@
 package com.ciandt.mercadocit.backend.entity;
 
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Ignore;
+import com.googlecode.objectify.annotation.Index;
+
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 /**
  * Created by gsanchez on 29/03/2016.
  */
@@ -21,7 +30,7 @@ public class Produto {
     @Index
     private Long idUsuario;
 
-    public Produto(){
+    public Produto() {
     }
 
     public Produto(Long id, String nome, List<String> fotos, Long idUsuario) {

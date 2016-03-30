@@ -1,10 +1,14 @@
 package com.ciandt.mercadocit.backend.entity;
 
+import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.OnLoad;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -34,6 +38,9 @@ public class Produto {
     @Index
     private Long idUsuario;
 
+    @Ignore
+    private Objectify ofy = ObjectifyService.ofy();
+
     public Produto() {
     }
 
@@ -42,6 +49,16 @@ public class Produto {
         this.nome = nome;
         this.idFotos = idFotos;
         this.idUsuario = idUsuario;
+    }
+
+    @OnLoad
+    void OnLoad(){
+        if(!idFotos.isEmpty()){
+            fotos = new ArrayList<>();
+            for(Long id : idFotos) {
+                fotos.add(ofy.load().type(ProdutoFoto.class).id(id).now());
+            }
+        }
     }
 
     public Long getId() {

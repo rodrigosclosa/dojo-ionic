@@ -21,7 +21,11 @@ public class Produto {
     @Index
     private String nome;
 
-    private List<String> fotos;
+    @Ignore
+    @Nullable
+    private List<ProdutoFoto> fotos;
+
+    private List<Long> idFotos;
 
     @Ignore
     @Nullable
@@ -33,10 +37,10 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long id, String nome, List<String> fotos, Long idUsuario) {
+    public Produto(Long id, String nome, List<Long> idFotos, Long idUsuario) {
         this.id = id;
         this.nome = nome;
-        this.fotos = fotos;
+        this.idFotos = idFotos;
         this.idUsuario = idUsuario;
     }
 
@@ -56,19 +60,29 @@ public class Produto {
         this.nome = nome;
     }
 
-    public List<String> getFotos() {
+    @Nullable
+    public List<ProdutoFoto> getFotos() {
         return fotos;
     }
 
-    public void setFotos(List<String> fotos) {
+    public void setFotos(@Nullable List<ProdutoFoto> fotos) {
         this.fotos = fotos;
     }
 
+    public List<Long> getIdFotos() {
+        return idFotos;
+    }
+
+    public void setIdFotos(List<Long> idFotos) {
+        this.idFotos = idFotos;
+    }
+
+    @Nullable
     public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(@Nullable Usuario usuario) {
         this.usuario = usuario;
     }
 

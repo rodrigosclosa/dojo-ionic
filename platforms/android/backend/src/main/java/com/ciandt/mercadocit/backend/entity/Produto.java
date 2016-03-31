@@ -25,11 +25,6 @@ public class Produto {
     @Index
     private String nome;
 
-    @Ignore
-    @Nullable
-    private List<ProdutoFoto> fotos;
-
-    private List<Long> idFotos;
 
     @Ignore
     @Nullable
@@ -44,20 +39,16 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long id, String nome, List<Long> idFotos, Long idUsuario) {
+    public Produto(Long id, String nome, Long idUsuario) {
         this.id = id;
         this.nome = nome;
-        this.idFotos = idFotos;
         this.idUsuario = idUsuario;
     }
 
     @OnLoad
     void OnLoad(){
-        if(!idFotos.isEmpty()){
-            fotos = new ArrayList<>();
-            for(Long id : idFotos) {
-                fotos.add(ofy.load().type(ProdutoFoto.class).id(id).now());
-            }
+        if(this.idUsuario != null){
+            this.usuario = ofy.load().type(Usuario.class).id(this.idUsuario).now();
         }
     }
 
@@ -77,22 +68,6 @@ public class Produto {
         this.nome = nome;
     }
 
-    @Nullable
-    public List<ProdutoFoto> getFotos() {
-        return fotos;
-    }
-
-    public void setFotos(@Nullable List<ProdutoFoto> fotos) {
-        this.fotos = fotos;
-    }
-
-    public List<Long> getIdFotos() {
-        return idFotos;
-    }
-
-    public void setIdFotos(List<Long> idFotos) {
-        this.idFotos = idFotos;
-    }
 
     @Nullable
     public Usuario getUsuario() {

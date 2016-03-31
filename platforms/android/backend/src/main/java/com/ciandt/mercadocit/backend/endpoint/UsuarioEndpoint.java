@@ -16,13 +16,13 @@ import java.util.List;
  * Created by Gabriel on 29/03/2016.
  */
 @Api(
-        name="usuario",
-        version = "v1",
-        namespace = @ApiNamespace(
-                ownerDomain = "endpoint.backend.mercadocit.ciandt.com",
-                ownerName = "endpoint.backend.mercadocit.ciandt.com",
-                packagePath = ""
-        )
+    name="usuario",
+    version = "v1",
+    namespace = @ApiNamespace(
+            ownerDomain = "endpoint.backend.mercadocit.ciandt.com",
+            ownerName = "endpoint.backend.mercadocit.ciandt.com",
+            packagePath = ""
+    )
 )
 public class UsuarioEndpoint {
 

@@ -6,7 +6,12 @@
         <init-param>
             <param-name>services</param-name>
             <param-value>
-                com.ciandt.mercadocit.backend.endpoint.BaseEndpoint,com.ciandt.mercadocit.backend.endpoint.PredioEndpoint,com.ciandt.mercadocit.backend.endpoint.ProdutoFotoEndpoint,com.ciandt.mercadocit.backend.endpoint.UsuarioEndpoint
+                com.ciandt.mercadocit.backend.endpoint.BaseEndpoint,
+                com.ciandt.mercadocit.backend.endpoint.PredioEndpoint,
+                com.ciandt.mercadocit.backend.endpoint.ProdutoEndpoint,
+                com.ciandt.mercadocit.backend.endpoint.ProdutoFotoEndpoint,
+                com.ciandt.mercadocit.backend.endpoint.UsuarioEndpoint,
+                com.ciandt.mercadocit.backend.endpoint.UsuarioFavoritoEndpoint
             </param-value>
         </init-param>
     </servlet>

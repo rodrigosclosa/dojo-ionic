@@ -48,8 +48,17 @@ public class GenericDao<T> implements IGenericDao<T> {
     }
 
     @Override
-    public T getByProperty(String propName, Object propValue) {
+      public T getByProperty(String propName, Object propValue) {
         return ofy().load().type(clazz).filter(propName, propValue).first().now();
+    }
+
+    @Override
+    public T getByPropertys(List<String> propNames, List<Object> propValues) {
+        Query<T> query = ofy().load().type(clazz);
+        for(int index=0; index < propNames.size();index++){
+            query = query.filter(propNames.get(index),propValues.get(index));
+        }
+        return query.list().get(0);
     }
 
     @Override

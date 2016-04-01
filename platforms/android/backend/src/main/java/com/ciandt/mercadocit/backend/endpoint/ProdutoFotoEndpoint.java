@@ -51,9 +51,8 @@ public class ProdutoFotoEndpoint {
     }
 
     @ApiMethod(name = "getfotosByProduto", path = "ProdutoFotoByProduto/{id}", httpMethod = ApiMethod.HttpMethod.GET)
-    public ProdutoFoto getfotosByProduto(@Named("id") Long id) throws NotFoundException {
-        Produto produto = produtoService.getById(id);
-        return ProdutoFotoService.getById(produto.getId());
+    public List<ProdutoFoto> getfotosByProduto(@Named("id") Long id) throws NotFoundException {
+        return ProdutoFotoService.listByProduto(id);
     }
 
     @ApiMethod(name = "insertProdutoFoto", path = "ProdutoFoto", httpMethod = ApiMethod.HttpMethod.POST)

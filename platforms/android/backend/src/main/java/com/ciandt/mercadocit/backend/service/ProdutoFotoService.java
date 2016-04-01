@@ -41,8 +41,8 @@ public class ProdutoFotoService {
         return list;
     }
 
-    public List<ProdutoFoto> listByBase(Long id) throws NotFoundException {
-        List<ProdutoFoto> list = produtoFotoDao.listByProperty("idBase", id);
+    public List<ProdutoFoto> listByProduto(Long id) throws NotFoundException {
+        List<ProdutoFoto> list = produtoFotoDao.listByProperty("idProduto", id);
 
         if(list == null || list.size() < 1) {
             throw new NotFoundException("ProdutoFoto nao encontrado");

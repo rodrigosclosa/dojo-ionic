@@ -1,0 +1,20 @@
+<h1>Base</h1>
+
+<form novalidate ng-submit="submit()">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="name" ng-model="base.name">
+    <label class="mdl-textfield__label" for="name">Name</label>
+  </div>
+  
+  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
+  </input>
+</form>
+
+<!-- List -->
+<ul class="demo-list-item mdl-list">
+  <li class="mdl-list__item" ng-repeat="item in list track by $index">
+    <span class="mdl-list__item-primary-content">
+      {{ item.name }}
+    </span>
+  </li>
+</ul>

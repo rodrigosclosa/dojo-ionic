@@ -17,6 +17,18 @@ angular.module('adminApp')
     
     $scope.base = {};
     
+    $scope.editar = function(item) {
+        $scope.base = item;
+    };
+    
+    $scope.excluir = function(item) {
+        
+        $scope.list.splice($scope.list.indexOf(item), 1)
+        //$scope.list.splice(1, 1)
+        
+        
+    };
+    
     $scope.list = [
         {name: 'Campinas'},
         {name: 'São Paulo'},

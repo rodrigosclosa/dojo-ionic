@@ -10,6 +10,8 @@ import com.googlecode.objectify.annotation.OnLoad;
 
 import javax.annotation.Nullable;
 
+import static com.ciandt.mercadocit.backend.util.OfyService.ofy;
+
 
 /**
  * Created by rodrigosclosa on 24/03/16.
@@ -32,8 +34,6 @@ public class Predio {
     @Index
     private Long idBase;
 
-    @Ignore
-    private Objectify ofy = ObjectifyService.ofy();
 
     public Predio() {
     }
@@ -48,7 +48,7 @@ public class Predio {
     @OnLoad
     void onLoad() {
         if(this.idBase != null){
-            this.base = ofy.load().type(Base.class).id(this.idBase).now();
+            this.base = ofy().load().type(Base.class).id(this.idBase).now();
         }
     }
 

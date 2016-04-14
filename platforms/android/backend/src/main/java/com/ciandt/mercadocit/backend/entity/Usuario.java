@@ -5,8 +5,11 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.OnLoad;
 
 import javax.annotation.Nullable;
+
+import static com.ciandt.mercadocit.backend.util.OfyService.ofy;
 
 /**
  * Created by rodrigosclosa on 24/03/16.
@@ -40,6 +43,13 @@ public class Usuario {
         this.nome = nome;
         this.idPredio = idPredio;
         this.telefone = telefone;
+    }
+
+    @OnLoad
+    void onLoad() {
+        if(this.idPredio != null){
+            this.predio = ofy().load().type(Predio.class).id(this.idPredio).now();
+        }
     }
 
     public Long getId() {

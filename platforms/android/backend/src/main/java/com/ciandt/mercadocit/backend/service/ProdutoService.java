@@ -13,7 +13,9 @@ import java.util.List;
 public class ProdutoService {
     private ProdutoDao produtoDao;
 
-    public ProdutoService() {produtoDao = new ProdutoDao();}
+    public ProdutoService() {
+        produtoDao = new ProdutoDao();
+    }
 
     public List<Produto> list() {
         return produtoDao.listAll();
@@ -23,7 +25,7 @@ public class ProdutoService {
     public List<Produto> list(String nome) throws NotFoundException {
         List<Produto> list = produtoDao.listByProperty("nome", nome);
 
-        if(list == null || list.size() < 1) {
+        if (list == null || list.size() < 1) {
             throw new NotFoundException("Produto nao encontrado");
         }
 
@@ -33,7 +35,7 @@ public class ProdutoService {
     public List<Produto> listByBase(Long id) throws NotFoundException {
         List<Produto> list = produtoDao.listByProperty("idBase", id);
 
-        if(list == null || list.size() < 1) {
+        if (list == null || list.size() < 1) {
             throw new NotFoundException("Produto nao encontrado");
         }
 
@@ -44,7 +46,7 @@ public class ProdutoService {
     public Produto getById(Long id) throws NotFoundException {
         Produto item = produtoDao.getByKey(id);
 
-        if(item == null) {
+        if (item == null) {
             throw new NotFoundException("Produto nao encontrado");
         }
 
@@ -53,19 +55,15 @@ public class ProdutoService {
 
 
     public void insert(Produto item) throws ConflictException, NotFoundException {
-        if(item == null)
-        {
+        if (item == null) {
             throw new ConflictException("Produto nao informado.");
-        }
-        else if(item.getNome() == null || item.getNome().isEmpty())
-        {
-            throw new ConflictException("Nome do Produto nao informado.");
+        } else if (item.getNome() == null || item.getNome().isEmpty() || item.getDescricao() == null || item.getDescricao().isEmpty()) {
+            throw new ConflictException("Produto possui erros.");
         }
 
         Produto u = produtoDao.getByProperty("nome", item.getNome());
 
-        if(u != null)
-        {
+        if (u != null) {
             throw new ConflictException("Produto ja cadastrado: " + u.getNome());
         }
 
@@ -74,26 +72,22 @@ public class ProdutoService {
 
 
     public void update(Produto item) throws ConflictException, NotFoundException {
-        if(item == null)
-        {
+        if (item == null) {
             throw new ConflictException("Produto nao informado.");
-        }
-        else if(item.getNome() == null || item.getNome().isEmpty())
-        {
-            throw new ConflictException("Nome do Produto nao informado.");
+        } else if (item.getNome() == null || item.getNome().isEmpty() || item.getDescricao() == null || item.getDescricao().isEmpty() ) {
+            throw new ConflictException("Produto possui erros.");
         }
 
 
         Produto u = produtoDao.getById(item.getId());
 
-        if(u == null) {
+        if (u == null) {
             throw new NotFoundException("Produto nao encontrado");
         }
 
         u = produtoDao.getByProperty("nome", item.getNome());
 
-        if(u != null && !u.getId().equals(item.getId()))
-        {
+        if (u != null && !u.getId().equals(item.getId())) {
             throw new ConflictException("Produto ja cadastrado: " + u.getNome());
         }
 
@@ -104,7 +98,7 @@ public class ProdutoService {
     public void remove(long id) throws ConflictException, NotFoundException {
         Produto item = produtoDao.getByKey(id);
 
-        if(item == null) {
+        if (item == null) {
             throw new NotFoundException("Produto nao encontrado");
         }
 

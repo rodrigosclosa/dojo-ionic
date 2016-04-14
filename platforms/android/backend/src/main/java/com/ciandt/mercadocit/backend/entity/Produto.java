@@ -13,6 +13,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import static com.ciandt.mercadocit.backend.util.OfyService.ofy;
+
 /**
  * Created by gsanchez on 29/03/2016.
  */
@@ -25,31 +27,41 @@ public class Produto {
     @Index
     private String nome;
 
-
     @Ignore
     @Nullable
     private Usuario usuario;
 
     @Index
+    private Long idPredio;
+
+    @Index
     private Long idUsuario;
 
-    @Ignore
-    private Objectify ofy = ObjectifyService.ofy();
+    private String descricao;
 
     public Produto() {
     }
 
-    public Produto(Long id, String nome, Long idUsuario) {
+    public Produto(Long id, String nome, Long idUsuario, String descricao) {
         this.id = id;
         this.nome = nome;
         this.idUsuario = idUsuario;
+        this.descricao = descricao;
     }
 
     @OnLoad
     void OnLoad(){
         if(this.idUsuario != null){
-            this.usuario = ofy.load().type(Usuario.class).id(this.idUsuario).now();
+            this.usuario = ofy().load().type(Usuario.class).id(this.idUsuario).now();
         }
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Long getId() {

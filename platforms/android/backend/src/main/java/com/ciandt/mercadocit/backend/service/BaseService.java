@@ -26,7 +26,7 @@ public class BaseService {
         List<Base> list = baseDao.listByProperty("nome", nome);
 
         if(list == null || list.size() < 1) {
-            throw new NotFoundException("Tipo de incidente não encontrado");
+            throw new NotFoundException("Nenhuma base encontrada");
         }
 
         return list;
@@ -45,18 +45,18 @@ public class BaseService {
     public void insert(Base item) throws ConflictException, NotFoundException {
         if(item == null)
         {
-            throw new ConflictException("Usuário não informado.");
+            throw new ConflictException("Base não informada.");
         }
         else if(item.getNome() == null || item.getNome().isEmpty())
         {
-            throw new ConflictException("Nome do usuário não informado.");
+            throw new ConflictException("Nome da base não informada.");
         }
 
         Base u = baseDao.getByProperty("nome", item.getNome());
 
         if(u != null)
         {
-            throw new ConflictException("Descrição já cadastrado: " + u.getNome());
+            throw new ConflictException("Base já cadastrada: " + u.getNome());
         }
 
         baseDao.insert(item);
@@ -65,24 +65,24 @@ public class BaseService {
     public void update(Base item) throws ConflictException, NotFoundException {
         if(item == null)
         {
-            throw new ConflictException("Usuário não informado.");
+            throw new ConflictException("Base não informado.");
         }
         else if(item.getNome() == null || item.getNome().isEmpty())
         {
-            throw new ConflictException("Nome do usuário não informado.");
+            throw new ConflictException("Nome do base não informado.");
         }
 
         Base u = baseDao.getById(item.getId());
 
         if(u == null) {
-            throw new NotFoundException("Tipo de incidente não encontrado");
+            throw new NotFoundException("Base não encontrada");
         }
 
-        u = baseDao.getByProperty("descricao", item.getNome());
+        u = baseDao.getByProperty("nome", item.getNome());
 
         if(u != null && !u.getId().equals(item.getId()))
         {
-            throw new ConflictException("Descrição já cadastrada: " + u.getNome());
+            throw new ConflictException("Noma da base ja cadastrado: " + u.getNome());
         }
 
         baseDao.update(item);

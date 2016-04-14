@@ -10,6 +10,8 @@ import com.googlecode.objectify.annotation.OnLoad;
 
 import javax.annotation.Nullable;
 
+import static com.ciandt.mercadocit.backend.util.OfyService.ofy;
+
 /**
  * Created by gsanchez on 30/03/2016.
  */
@@ -29,9 +31,6 @@ public class ProdutoFoto {
     @Index
     private Long idProduto;
 
-    @Ignore
-    private Objectify ofy = ObjectifyService.ofy();
-
     public ProdutoFoto() {
     }
 
@@ -44,7 +43,7 @@ public class ProdutoFoto {
     @OnLoad
     void OnLoad(){
         if(this.idProduto != null){
-            this.produto = ofy.load().type(Produto.class).id(this.idProduto).now();
+            this.produto = ofy().load().type(Produto.class).id(this.idProduto).now();
         }
     }
 
@@ -54,14 +53,6 @@ public class ProdutoFoto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Objectify getOfy() {
-        return ofy;
-    }
-
-    public void setOfy(Objectify ofy) {
-        this.ofy = ofy;
     }
 
     public Long getIdProduto() {

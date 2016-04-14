@@ -3,6 +3,7 @@ package com.ciandt.mercadocit.backend.util;
 import com.ciandt.mercadocit.backend.entity.Base;
 import com.ciandt.mercadocit.backend.entity.Predio;
 import com.ciandt.mercadocit.backend.entity.Produto;
+import com.ciandt.mercadocit.backend.entity.ProdutoComentario;
 import com.ciandt.mercadocit.backend.entity.ProdutoFoto;
 import com.ciandt.mercadocit.backend.entity.Usuario;
 import com.ciandt.mercadocit.backend.entity.UsuarioFavorito;
@@ -22,6 +23,7 @@ public class OfyService {
         ObjectifyService.register(Produto.class);
         ObjectifyService.register(ProdutoFoto.class);
         ObjectifyService.register(UsuarioFavorito.class);
+        ObjectifyService.register(ProdutoComentario.class);
     }
 
     public static Objectify ofy() {

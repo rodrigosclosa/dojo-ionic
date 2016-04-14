@@ -11,7 +11,8 @@
                 com.ciandt.mercadocit.backend.endpoint.ProdutoEndpoint,
                 com.ciandt.mercadocit.backend.endpoint.ProdutoFotoEndpoint,
                 com.ciandt.mercadocit.backend.endpoint.UsuarioEndpoint,
-                com.ciandt.mercadocit.backend.endpoint.UsuarioFavoritoEndpoint
+                com.ciandt.mercadocit.backend.endpoint.UsuarioFavoritoEndpoint,
+                com.ciandt.mercadocit.backend.endpoint.ProdutoComentarioEndpoint
             </param-value>
         </init-param>
     </servlet>

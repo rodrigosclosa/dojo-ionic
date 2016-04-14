@@ -52,6 +52,9 @@ public class PredioEndpoint {
     @ApiMethod(name = "getPrediosByBase", path = "predios/{base}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Predio> getPrediosByBase(@Named("base") String Nomebase) throws NotFoundException {
         List<Base> base = baseService.list(Nomebase);
+        if(base.size() <= 0){
+            return null;
+        }
         return predioService.listByBase(base.get(0).getId());
     }
 

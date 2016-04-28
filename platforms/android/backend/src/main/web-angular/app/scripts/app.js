@@ -35,6 +35,10 @@ angular
         templateUrl: 'views/base.html',
         controller: 'BaseCtrl'
       })
+      .when('/predio', {
+        templateUrl: 'views/predio.html',
+        controller: 'PredioCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

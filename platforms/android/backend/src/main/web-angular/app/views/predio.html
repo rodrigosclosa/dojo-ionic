@@ -1,3 +1,32 @@
-<p>This is the predio sdfs.</p>
+<h1>Predio</h1>
 
-<p ng-repeat="predio in prediosLista"> {{ predio.name }}</p>
+<form novalidate ng-submit="submit()">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="name" ng-model="predio.name">
+    <select ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
+    <label class="mdl-textfield__label" for="name">Name</label>
+  </div>
+  
+  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
+  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Concluir">
+  
+  </input>
+</form>
+
+<!-- List -->
+<ul class="demo-list-item mdl-list">
+  <li class="mdl-list__item" ng-repeat="predio in list track by $index">
+    <span class="mdl-list__item-primary-content">
+      {{ predio.name  }}
+    </span>
+    
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="editar(item)">
+         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>&nbsp;
+    
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="exckuir(item)">
+         <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+
+  </li>
+</ul>

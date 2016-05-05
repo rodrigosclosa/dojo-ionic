@@ -14,7 +14,7 @@ angular.module('adminApp')
       'AngularJS',
       'Karma'
     ];
-    console.log(api)
+    
     $scope.base = {};
     
     $scope.editar = function(item) {

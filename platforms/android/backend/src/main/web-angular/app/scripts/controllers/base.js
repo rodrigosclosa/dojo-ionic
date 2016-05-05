@@ -29,7 +29,7 @@ angular.module('adminApp')
     $scope.excluir = function(item) {
         var base = $scope.list.splice($scope.list.indexOf(item), 1);
         console.log(base);
-        api.delete('base/v1/base/' + base.id);
+        api.delete('base/v1/base/' + base[0].id);
     };
 
     // Post data to api

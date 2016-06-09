@@ -2,11 +2,12 @@
 
 <form novalidate ng-submit="submit()">
   <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="text" id="name" ng-model="predio.name">
-    <select ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
-    <label class="mdl-textfield__label" for="name">Name</label>
+    <label class="mdl-textfield__label" for="nome">Name</label>
+    <input class="mdl-textfield__input" type="text" id="nome" ng-model="predio.nome">
   </div>
-  
+  <div class="mdl-textfield mdl-js-textfield">
+    <select ng-options="base as base.nome for base in bases track by base.id" ng-model="base"></select>
+  </div>
   <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
   <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Concluir">
   
@@ -15,9 +16,12 @@
 
 <!-- List -->
 <ul class="demo-list-item mdl-list">
-  <li class="mdl-list__item" ng-repeat="predio in list track by $index">
+  <li class="mdl-list__item" ng-repeat="predio in predios track by $index">
     <span class="mdl-list__item-primary-content">
-      {{ predio.name  }}
+      {{ predio.nome  }}
+    </span>
+    <span class="mdl-list__item-primary-content">
+      {{ predio.base.nome  }}
     </span>
     
     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="editar(item)">

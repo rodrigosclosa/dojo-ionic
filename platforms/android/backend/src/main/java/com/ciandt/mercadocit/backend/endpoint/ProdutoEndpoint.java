@@ -40,6 +40,11 @@ public class ProdutoEndpoint {
             return produtoService.list(nome);
     }
 
+    @ApiMethod(name = "getProdutosByUsuario", path = "ProdutoByUsuario", httpMethod = ApiMethod.HttpMethod.GET)
+    public List<Produto> ProdutoByUsuario(@Named("usuario") String usuario) throws NotFoundException {
+            return produtoService.listByUsuario(usuario);
+    }
+
     @ApiMethod(name = "getProduto", path = "Produto/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public Produto getProduto(@Named("id") Long id) throws NotFoundException {
         return produtoService.getById(id);

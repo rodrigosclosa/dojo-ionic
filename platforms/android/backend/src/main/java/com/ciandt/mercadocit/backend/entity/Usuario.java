@@ -23,6 +23,7 @@ public class Usuario {
     @Index
     private String email;
 
+    @Index
     private String nome;
 
     @Ignore

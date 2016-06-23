@@ -1,7 +1,9 @@
 package com.ciandt.mercadocit.backend.service;
 
 import com.ciandt.mercadocit.backend.dao.ProdutoDao;
+import com.ciandt.mercadocit.backend.dao.UsuarioDao;
 import com.ciandt.mercadocit.backend.entity.Produto;
+import com.ciandt.mercadocit.backend.entity.Usuario;
 import com.google.api.server.spi.response.ConflictException;
 import com.google.api.server.spi.response.NotFoundException;
 
@@ -12,9 +14,11 @@ import java.util.List;
  */
 public class ProdutoService {
     private ProdutoDao produtoDao;
+    private UsuarioDao usuarioDao;
 
     public ProdutoService() {
         produtoDao = new ProdutoDao();
+        usuarioDao = new UsuarioDao();
     }
 
     public List<Produto> list() {
@@ -30,6 +34,14 @@ public class ProdutoService {
         }
 
         return list;
+    }
+
+    public List<Produto> listByUsuario(String nomeUsuario){
+        Usuario usuario = usuarioDao.getByProperty("nome",nomeUsuario);
+        if(usuario != null){
+            return produtoDao.getProdutosByUsuario(usuario.getId());
+        }
+        return null;
     }
 
     public List<Produto> listByBase(Long id) throws NotFoundException {

@@ -29,6 +29,7 @@ angular.module('adminApp')
     }
     
     api.put = function(route,params){
+        route = 'https://mercado-cit.appspot.com/_ah/api/' + route;
        return $http.put(route,params);
     }
     

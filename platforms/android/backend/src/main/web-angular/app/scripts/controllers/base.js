@@ -36,7 +36,11 @@ angular.module('adminApp')
     $scope.submit = function () {
        var newBase = $scope.base;
        console.log(newBase);
-       api.post('base/v1/base', newBase);
+       if(newBase.id != undefined){
+           api.put('base/v1/base', newBase);
+       } else{
+           api.post('base/v1/base', newBase);
+       }
     };
 
     $scope.load = function() {

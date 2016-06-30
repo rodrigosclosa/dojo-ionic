@@ -1,0 +1,6 @@
+{
+    "ImageIO.framework": 1,
+    "CoreLocation.framework": 2,
+    "AVFoundation.framework": 1,
+    "AudioToolbox.framework": 1
+}

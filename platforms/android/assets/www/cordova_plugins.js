@@ -320,12 +320,6 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-console": "1.0.2",
-    "cordova-plugin-device": "1.1.1",
-    "cordova-plugin-splashscreen": "3.1.0",
-    "cordova-plugin-statusbar": "2.1.1",
-    "cordova-plugin-whitelist": "1.2.1",
-    "ionic-plugin-keyboard": "1.0.8",
     "cordova-plugin-geolocation": "2.2.0",
     "cordova-plugin-dialogs": "1.2.1",
     "cordova-plugin-camera": "2.2.0",
@@ -334,6 +328,6 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.5.1",
     "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-file": "4.2.0"
-}
+};
 // BOTTOM OF METADATA
 });

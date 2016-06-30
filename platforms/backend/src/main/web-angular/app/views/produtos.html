@@ -1,0 +1,20 @@
+<h1>Produtos</h1>
+
+<ul class="demo-list-item mdl-list">
+    <li class="mdl-list__item mdl-list__item--three-line" ng-repeat="produto in list track by $index">
+        <span class="mdl-list__item-primary-content">
+            <span>{{produto.nome}}</span>
+            <span class="mdl-list__item-text-body">
+                Usuário: {{ produto.usuario.nome }}
+            </span>
+        </span>
+
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="editar(item)">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </button>&nbsp;
+        
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="exckuir(item)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+    </li>
+</ul>

@@ -42,7 +42,7 @@ public class UsuarioService {
         return usuario;
     }
 
-    public void insert(Usuario usuario) throws ConflictException, NotFoundException{
+    public Usuario insert(Usuario usuario) throws ConflictException, NotFoundException{
         if(usuario == null) {
             throw new ConflictException("Usuario não informado.");
         }
@@ -56,10 +56,10 @@ public class UsuarioService {
             throw new ConflictException("Nome já existente" + u.getNome());
         }
 
-        usuarioDao.insert(usuario);
+        return usuarioDao.insert(usuario);
     }
 
-    public Usuario update(Usuario usuario) throws ConflictException, NotFoundException{
+    public void update(Usuario usuario) throws ConflictException, NotFoundException{
         if(usuario == null){
             throw new ConflictException("Usuario não informado.");
         }
@@ -77,7 +77,7 @@ public class UsuarioService {
            throw new ConflictException("Nome já existente");
         }
 
-        return usuarioDao.update(usuario);
+        usuarioDao.update(usuario);
     }
 
     public void remove(Long id) throws ConflictException, NotFoundException{

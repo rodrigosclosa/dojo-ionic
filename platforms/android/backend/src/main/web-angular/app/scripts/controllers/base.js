@@ -21,6 +21,8 @@ angular.module('adminApp')
         'icone' : 'teste'
     };
 
+    $scope.list = []
+
     //
     $scope.editar = function(item) {
         $scope.base = item;
@@ -35,11 +37,25 @@ angular.module('adminApp')
     // Post data to api
     $scope.submit = function () {
        var newBase = $scope.base;
-       console.log(newBase);
        if(newBase.id != undefined){
-           api.put('base/v1/base', newBase);
+           api.put('base/v1/base', newBase)
+            .success(function(response){
+                
+            })
+            .error(function(err){
+                console.log(err);
+            })
        } else{
-           api.post('base/v1/base', newBase);
+           api.post('base/v1/base', newBase)
+                .success(function(response){
+                    response = {};
+                    response.nome = $scope.base.nome;
+                    response.id = 10;
+                    $scope.list.push(response);
+                })
+                .error(function(err){
+                    console.log(err);
+                })
        }
     };
 

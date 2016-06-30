@@ -34,7 +34,9 @@ angular.module('adminApp')
     
     //
     $scope.editar = function(item) {
+        console.log(item);
         $scope.predio = item;
+        $scope.base = item.base;
     };
     
     $scope.excluir = function(item) {
@@ -45,10 +47,33 @@ angular.module('adminApp')
 
     // Post data to api
     $scope.submit = function () {
-       var newPredio = $scope.predio;
-       newPredio.idBase = $scope.base.id;
-       console.log(newPredio);
-       api.post('predio/v1/predio', newPredio).then(loadPredios);
+        if($scope.predio.id != undefined){
+            var newPredio = $scope.predio;
+            newPredio.idBase = $scope.base.id;
+            console.log(newPredio);
+            api.post('predio/v1/predio', newPredio)
+                .success(function(response){
+                    response = {};
+                    response.nome = $scope.predio.nome;
+                    response.base = $scope.base;
+                    $scope.bases.push(response);
+                })
+                .error(function(err){
+                    alert('Erro ao cadastrar...');
+                });
+        } else {
+            var predio = $scope.predio;
+            predio.idBase = $scope.base.id;
+            console.log(predio);
+            api.put('predio/v1/predio', predio)
+                .success(function(response){
+                    console.log(response);
+                })
+                .error(function(response){
+                    console.log(response);
+                });
+        }
+       
        
     };
 

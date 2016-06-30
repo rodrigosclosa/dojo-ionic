@@ -59,8 +59,8 @@ public class PredioEndpoint {
     }
 
     @ApiMethod(name = "insertPredio", path = "predio", httpMethod = ApiMethod.HttpMethod.POST)
-    public void insertPredio(Predio tipo) throws ConflictException, NotFoundException {
-        predioService.insert(tipo);
+    public Predio insertPredio(Predio tipo) throws ConflictException, NotFoundException {
+        return predioService.insert(tipo);
     }
 
     @ApiMethod(name = "updatePredio", path = "predio", httpMethod = ApiMethod.HttpMethod.PUT)

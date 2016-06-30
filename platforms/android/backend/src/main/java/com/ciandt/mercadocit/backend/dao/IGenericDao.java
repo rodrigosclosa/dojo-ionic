@@ -11,7 +11,7 @@ import java.util.List;
 public interface IGenericDao<T> {
 
     Key<T> save(T entity);
-    void insert(T entity);
+    T insert(T entity);
     void delete(T entity);
     void update(T entity);
     List<T> listAll();

@@ -55,8 +55,8 @@ public class ProdutoComentarioEndpoint {
     }
 
     @ApiMethod(name = "insertProdutoComentario", path = "produtoComentario", httpMethod = ApiMethod.HttpMethod.POST)
-    public void insertProdutoComentario(ProdutoComentario tipo) throws ConflictException, NotFoundException {
-        produtoComentarioService.insert(tipo);
+    public ProdutoComentario insertProdutoComentario(ProdutoComentario tipo) throws ConflictException, NotFoundException {
+        return produtoComentarioService.insert(tipo);
     }
 
     @ApiMethod(name = "updateProdutoComentario", path = "produtoComentario", httpMethod = ApiMethod.HttpMethod.PUT)

@@ -42,7 +42,7 @@ public class BaseService {
         return item;
     }
     
-    public void insert(Base item) throws ConflictException, NotFoundException {
+    public Base insert(Base item) throws ConflictException, NotFoundException {
         if(item == null)
         {
             throw new ConflictException("Base não informada.");
@@ -59,7 +59,7 @@ public class BaseService {
             throw new ConflictException("Base já cadastrada: " + u.getNome());
         }
 
-        baseDao.insert(item);
+        return baseDao.insert(item);
     }
     
     public void update(Base item) throws ConflictException, NotFoundException {

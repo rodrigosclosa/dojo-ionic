@@ -55,7 +55,7 @@ public class PredioService {
     }
 
 
-    public void insert(Predio item) throws ConflictException, NotFoundException {
+    public Predio insert(Predio item) throws ConflictException, NotFoundException {
         if(item == null)
         {
             throw new ConflictException("Predio nao informado.");
@@ -72,7 +72,7 @@ public class PredioService {
             throw new ConflictException("Predio ja cadastrado: " + u.getNome());
         }
 
-        predioDao.insert(item);
+        return predioDao.insert(item);
     }
 
 

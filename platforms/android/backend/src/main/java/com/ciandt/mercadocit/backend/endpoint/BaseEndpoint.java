@@ -47,8 +47,8 @@ public class BaseEndpoint {
     }
 
     @ApiMethod(name = "insertBase", path = "base", httpMethod = ApiMethod.HttpMethod.POST)
-    public void insertBase(Base tipo) throws ConflictException, NotFoundException {
-        baseService.insert(tipo);
+    public Base insertBase(Base tipo) throws ConflictException, NotFoundException {
+        return baseService.insert(tipo);
     }
 
     @ApiMethod(name = "updateBase", path = "base", httpMethod = ApiMethod.HttpMethod.PUT)

@@ -66,7 +66,7 @@ public class ProdutoService {
     }
 
 
-    public void insert(Produto item) throws ConflictException, NotFoundException {
+    public Produto insert(Produto item) throws ConflictException, NotFoundException {
         if (item == null) {
             throw new ConflictException("Produto nao informado.");
         } else if (item.getNome() == null || item.getNome().isEmpty() || item.getDescricao() == null || item.getDescricao().isEmpty()) {
@@ -79,7 +79,7 @@ public class ProdutoService {
             throw new ConflictException("Produto ja cadastrado: " + u.getNome());
         }
 
-        produtoDao.insert(item);
+        return produtoDao.insert(item);
     }
 
 

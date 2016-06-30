@@ -47,8 +47,8 @@ public class UsuarioEndpoint {
     }
 
     @ApiMethod(name = "insertUsuario", path = "usuario", httpMethod = ApiMethod.HttpMethod.POST)
-    public void insertUsuario(Usuario usuario) throws ConflictException, NotFoundException {
-        usuarioService.insert(usuario);
+    public Usuario insertUsuario(Usuario usuario) throws ConflictException, NotFoundException {
+        return usuarioService.insert(usuario);
     }
 
     @ApiMethod(name = "updateUsuario", path = "usuario", httpMethod = ApiMethod.HttpMethod.PUT)

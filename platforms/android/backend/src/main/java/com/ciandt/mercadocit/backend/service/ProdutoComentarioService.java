@@ -44,7 +44,7 @@ public class ProdutoComentarioService {
     }
 
 
-    public void insert(ProdutoComentario item) throws ConflictException, NotFoundException {
+    public ProdutoComentario insert(ProdutoComentario item) throws ConflictException, NotFoundException {
         if(item == null)
         {
             throw new ConflictException("ProdutoComentario nao informado.");
@@ -54,7 +54,7 @@ public class ProdutoComentarioService {
             throw new ConflictException("Comentario nao informado.");
         }
 
-        produtoComentarioDao.insert(item);
+        return produtoComentarioDao.insert(item);
     }
 
 

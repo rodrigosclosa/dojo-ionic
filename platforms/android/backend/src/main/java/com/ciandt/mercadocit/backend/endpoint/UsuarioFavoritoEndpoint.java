@@ -51,8 +51,8 @@ public class UsuarioFavoritoEndpoint {
     }
 
     @ApiMethod(name = "insertUsuarioFavorito", path = "UsuarioFavorito", httpMethod = ApiMethod.HttpMethod.POST)
-    public void insertUsuarioFavorito(UsuarioFavorito tipo) throws ConflictException, NotFoundException {
-        usuarioFavoritoService.insert(tipo);
+    public UsuarioFavorito insertUsuarioFavorito(UsuarioFavorito tipo) throws ConflictException, NotFoundException {
+        return usuarioFavoritoService.insert(tipo);
     }
 
     @ApiMethod(name = "updateUsuarioFavorito", path = "UsuarioFavorito", httpMethod = ApiMethod.HttpMethod.PUT)

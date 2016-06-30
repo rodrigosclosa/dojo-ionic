@@ -63,7 +63,7 @@ public class ProdutoFotoService {
     }
 
 
-    public void insert(ProdutoFoto item) throws ConflictException, NotFoundException {
+    public ProdutoFoto insert(ProdutoFoto item) throws ConflictException, NotFoundException {
         if(item == null)
         {
             throw new ConflictException("ProdutoFoto nao informado.");
@@ -80,7 +80,7 @@ public class ProdutoFotoService {
             throw new ConflictException("ProdutoFoto ja cadastrado: " + u.getNome());
         }
 
-        produtoFotoDao.insert(item);
+        return produtoFotoDao.insert(item);
     }
 
 

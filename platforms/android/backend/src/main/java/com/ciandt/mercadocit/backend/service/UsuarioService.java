@@ -59,7 +59,7 @@ public class UsuarioService {
         usuarioDao.insert(usuario);
     }
 
-    public void update(Usuario usuario) throws ConflictException, NotFoundException{
+    public Usuario update(Usuario usuario) throws ConflictException, NotFoundException{
         if(usuario == null){
             throw new ConflictException("Usuario não informado.");
         }
@@ -77,7 +77,7 @@ public class UsuarioService {
            throw new ConflictException("Nome já existente");
         }
 
-        usuarioDao.update(usuario);
+        return usuarioDao.update(usuario);
     }
 
     public void remove(Long id) throws ConflictException, NotFoundException{

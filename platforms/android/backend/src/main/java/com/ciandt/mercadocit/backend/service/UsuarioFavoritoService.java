@@ -52,7 +52,7 @@ public class UsuarioFavoritoService {
     }
 
 
-    public void insert(UsuarioFavorito item) throws ConflictException, NotFoundException {
+    public UsuarioFavorito insert(UsuarioFavorito item) throws ConflictException, NotFoundException {
         if(item == null)
         {
             throw new ConflictException("UsuarioFavorito nao informado.");
@@ -69,7 +69,7 @@ public class UsuarioFavoritoService {
             throw new ConflictException("UsuarioFavorito ja cadastrado: Usuario:" + u.getIdUsuario()+" Produto: "+u.getIdProduto());
         }
 
-        usuarioFavoritoDao.insert(item);
+        return usuarioFavoritoDao.insert(item);
     }
 
 

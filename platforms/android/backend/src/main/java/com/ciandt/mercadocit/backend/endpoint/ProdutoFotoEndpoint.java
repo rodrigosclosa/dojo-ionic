@@ -56,8 +56,8 @@ public class ProdutoFotoEndpoint {
     }
 
     @ApiMethod(name = "insertProdutoFoto", path = "ProdutoFoto", httpMethod = ApiMethod.HttpMethod.POST)
-    public void insertProdutoFoto(ProdutoFoto tipo) throws ConflictException, NotFoundException {
-        ProdutoFotoService.insert(tipo);
+    public ProdutoFoto insertProdutoFoto(ProdutoFoto tipo) throws ConflictException, NotFoundException {
+        return ProdutoFotoService.insert(tipo);
     }
 
     @ApiMethod(name = "updateProdutoFoto", path = "ProdutoFoto", httpMethod = ApiMethod.HttpMethod.PUT)

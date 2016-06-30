@@ -27,8 +27,9 @@ public class GenericDao<T> implements IGenericDao<T> {
     }
 
     @Override
-    public void insert(T entity) {
+    public T insert(T entity) {
         save(entity);
+        return entity;
     }
 
     @Override

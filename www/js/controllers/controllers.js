@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
   
-.controller('principalCtrl', function($scope, api) {
+.controller('principalCtrl', function($scope, api, $http) {
 
      route = 'https://mercado-cit.appspot.com/_ah/api/produto/v1/Produto';
      params = null;

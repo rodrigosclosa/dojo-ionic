@@ -17,14 +17,16 @@ public class Base {
     @Index
     private String nome;
     private String icone;
+    private String sigla;
 
     public Base() {
     }
 
-    public Base(Long id, String nome, String icone) {
+    public Base(Long id, String nome, String icone, String sigla) {
         this.id = id;
         this.nome = nome;
         this.icone = icone;
+        this.sigla = sigla;
     }
 
     public Long getId() {
@@ -49,5 +51,13 @@ public class Base {
 
     public void setIcone(String icone) {
         this.icone = icone;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 }

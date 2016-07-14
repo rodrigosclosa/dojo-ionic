@@ -31,6 +31,16 @@ public class BaseService {
 
         return list;
     }
+
+    public List<Base> listBySigla(String sigla) throws NotFoundException {
+        List<Base> list = baseDao.listByProperty("sigla", sigla);
+
+        if(list == null || list.size() < 1) {
+            throw new NotFoundException("Nenhuma base encontrada");
+        }
+
+        return list;
+    }
     
     public Base getById(Long id) throws NotFoundException {
         Base item = baseDao.getByKey(id);

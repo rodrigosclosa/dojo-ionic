@@ -1,7 +1,9 @@
 package com.ciandt.mercadocit.backend.endpoint;
 
 import com.ciandt.mercadocit.backend.entity.Base;
+import com.ciandt.mercadocit.backend.entity.Predio;
 import com.ciandt.mercadocit.backend.service.BaseService;
+import com.ciandt.mercadocit.backend.service.PredioService;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -28,9 +30,11 @@ import javax.inject.Named;
 public class BaseEndpoint {
 
     private BaseService baseService;
+    private PredioService predioService;
 
     public BaseEndpoint() {
         baseService = new BaseService();
+        predioService = new PredioService();
     }
 
     @ApiMethod(name = "getBases", path = "base", httpMethod = ApiMethod.HttpMethod.GET)
@@ -44,6 +48,11 @@ public class BaseEndpoint {
     @ApiMethod(name = "getBase", path = "base/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public Base getBase(@Named("id") Long id) throws NotFoundException {
         return baseService.getById(id);
+    }
+
+    @ApiMethod(name = "getBasePredios", path = "base/{id}/predios", httpMethod = ApiMethod.HttpMethod.GET)
+    public  List<Predio> getBasePredios(@Named("id") Long id) throws NotFoundException {
+        return predioService.listByBase(id);
     }
 
     @ApiMethod(name = "insertBase", path = "base", httpMethod = ApiMethod.HttpMethod.POST)

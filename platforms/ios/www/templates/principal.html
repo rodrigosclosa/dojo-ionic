@@ -1,16 +1,16 @@
 <ion-view title="Principal">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <ion-list>
-            <ion-item class="item-thumbnail-left" ng-repeat="produto in list track by $index">
+            <ion-item class="item-thumbnail-left" ng-repeat="produto in produtos track by $index">
                 <img>
                 <h2>{{produto.nome}}</h2>
                 <p>{{produto.usuario.nome}}</p>
             </ion-item>
         </ion-list>
-        <div class="button-bar">
-            <button class="button button-stable button-icon button-block ">CPS</button>
-            <button class="button button-stable button-icon button-block ">BH</button>
-            <button class="button button-stable button-icon button-block ">SP</button>
+        <ion-footer-bar>
+            <div class="tabs">
+            <a  class="tab-item">{{ predio.nome }}<select ng-repeat="predio in predios" style="display: none;"></select></a>
         </div>
+        </ion-footer-bar>
     </ion-content>
 </ion-view>

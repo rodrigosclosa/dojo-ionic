@@ -1,0 +1,31 @@
+<ion-view title="Principal">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="item item-body">
+            <img class="full-image" src="http://lorempixel.com/400/200/">
+            <h2>{{produto.nome}}</h2>
+            <p>
+                <h1>
+                    <i class="ion-android-favorite-outline"></i>
+                    <i class="ion-android-bookmark"></i>
+                    <i class="ion-ios-email-outline"></i>
+                </h1>
+            </p>
+            <p>
+                Descrição do produto bla bla bla bla bla b
+                blabfsf s g d e rt er t er ter te rt er t erter
+                tekrjhtkejrhtk ert ekrt ekrt ekr tker tker tker tker tke
+                te rt ekrnt ekrn tkert e
+            </p>
+            <p>
+                <a href="#" class="subdued">1 Quantidade</a>
+                <a href="#" class="subdued">Algum link aqui</a>
+            </p>
+
+            <div class="item item-avatar">
+                <img src="http://lorempixel.com/50/50">
+                <h2>Vendedor: {{produto.usuario.nome}}</h2>
+                <p>{{produto.usuario.nome}} : {{produto.usuario.email}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

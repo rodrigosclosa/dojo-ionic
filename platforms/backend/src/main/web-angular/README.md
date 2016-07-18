@@ -5,7 +5,10 @@ version 0.15.1.
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+install `grunt` globally with `npm install grunt -g`
+install node and bower plugins with `npm install && bower install`
+
+Run `grunt` for building and `grunt serve` for run the Angular project.
 
 ## Testing
 

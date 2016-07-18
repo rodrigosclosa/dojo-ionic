@@ -15,7 +15,7 @@ bower install
 
 Distribute and build
 ```bash
-grunt
+gulp
 ```
 
 

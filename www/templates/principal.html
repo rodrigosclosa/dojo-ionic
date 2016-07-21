@@ -1,7 +1,7 @@
 <ion-view view-title="Principal">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <ion-list>
-            <ion-item class="item-thumbnail-left" ng-repeat="produto in produtos track by $index">
+            <ion-item class="item-thumbnail-left" ng-repeat="produto in produtos track by $index" href="#/produto/{{produto.id}}">
                 <img>
                 <h2>{{produto.nome}}</h2>
                 <p>{{produto.usuario.nome}}</p>

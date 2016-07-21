@@ -10,6 +10,7 @@
  */
 angular
   .module('adminApp', [
+    'ngMaterial',
     'ngAnimate',
     'ngAria',
     'ngCookies',

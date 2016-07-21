@@ -1,20 +1,34 @@
-<h1>Predio</h1>
-
+<md-toolbar >
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Predio</h1>
+  </div>
+</md-toolbar>
+<md-content flex layout-padding>
 <form novalidate ng-submit="submit()">
-  <div class="mdl-textfield mdl-js-textfield">
-    <label class="mdl-textfield__label" for="nome">Name</label>
-    <input class="mdl-textfield__input" type="text" id="nome" ng-model="predio.nome">
-  </div>
-  <div class="mdl-textfield mdl-js-textfield">
-    <select ng-options="base as base.nome for base in bases track by base.id" ng-model="base"></select>
-  </div>
+  <md-input-container layout="layout-xs">
+    <label>Nome</label>
+    <input ng-model="predio.nome">
+  </md-input-container>
+  <md-input-container layout="layout-xs">
+   <label>Base</label>
+    <md-select ng-model="base">
+      <md-option ng-repeat="base in bases track by base.id" value="{{base.id}}" ng-disabled="$index === 1">
+            {{base.nome}}
+      </md-option>
+     </md-select>
+  </md-input-container>
   <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
-  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Concluir">
-
   </input>
 </form>
+ </md-content>
 
 <!-- List -->
+<md-toolbar >
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Relação de Predios</h1>
+  </div>
+</md-toolbar>
+<md-content flex layout-padding>
 <ul class="demo-list-item mdl-list">
   <li class="mdl-list__item" ng-repeat="predio in predios track by $index">
     <span class="mdl-list__item-primary-content">
@@ -23,14 +37,13 @@
     <span class="mdl-list__item-primary-content">
       {{ predio.base.nome  }}
     </span>
-
+    
     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="editar(item)">
          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </button>&nbsp;
-
+    
     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="excluir(item)">
          <i class="fa fa-trash" aria-hidden="true"></i>
     </button>
-
   </li>
 </ul>

@@ -6,17 +6,43 @@ angular.module('app.routes', [])
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
-    $stateProvider.state('principal', {
-      url: '/principal',
-      templateUrl: 'templates/principal.html',
-      controller: 'principalCtrl'
-    }).state('detalhesProduto', {
-      url: '/produto/:id',
-      templateUrl: 'templates/produto.html',
-      controller: 'produtoCtrl'
+    $stateProvider
+
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
     })
+    
+    .state('app.principal', {
+      url: '/principal',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/principal.html',
+          controller: 'principalCtrl'
+        },
+        'footerContent': {
+          templateUrl: 'templates/footerbar.html',
+          controller: 'footerBarCtrl'
+        }
+      }
+    })
+    
+    .state('app.detalhesProduto', {
+      url: '/produto/:id',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/produto.html',
+          controller: 'produtoCtrl'
+        },
+        'footerContent': {
+          templateUrl: 'templates/footerbar.html',
+          controller: 'footerBarCtrl'
+        }
+      }
+    });
 
   //Default page
-  $urlRouterProvider.otherwise('/principal')
-
+  $urlRouterProvider.otherwise('/app/principal');
 });

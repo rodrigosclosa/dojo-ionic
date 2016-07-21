@@ -26,7 +26,5 @@ angular.module('app.controllers', [])
     $scope.produtos = [];
     $scope.predios = [];
     $scope.load();
-
-
 })
  

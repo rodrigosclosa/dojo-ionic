@@ -1,0 +1,16 @@
+@media (max-width: 360px) {
+  .slide-first {
+    background: #00ff00 url("/images/slides/slide-first.jpg") no-repeat fixed center;
+    background-size: 1140px 640px;
+  }
+
+  .slide-second {
+    background: #00ff00 url("/images/slides/slide-second.jpg") no-repeat fixed 200px 0px;
+    background-size: 963px 640px;
+  }
+
+  .slide-third {
+    background: #00ff00 url("/images/slides/slide-third.jpg") no-repeat fixed 400px 0px;
+    background-size: 996px 640px;
+  }
+}

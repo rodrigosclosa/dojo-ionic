@@ -1,0 +1,43 @@
+<ion-nav-bar class="bar app-top-bar">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <ion-nav-buttons side="left">
+    <button class="button"
+      ng-show="data.slider && data.slider.activeIndex == 0"
+      ng-click="autenticate()">
+      Pular introdução
+    </button>
+    <button class="button"
+      ng-show="data.slider && data.slider.activeIndex > 0"
+      ng-click="previous()">
+      Anterior
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button"
+      ng-show="data.slider && data.slider.activeIndex < 2"
+      ng-click="next()">
+      Próximo
+    </button>
+    <button class="button"
+      ng-show="data.slider && data.slider.activeIndex == 2"
+      ng-click="autenticate()">
+      Let's trade? =)
+    </button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content scroll="false">
+  <ion-slides  options="options" slider="data.slider">
+    <ion-slide-page>
+      <div class="box slide-first"></div>
+    </ion-slide-page>
+    <ion-slide-page>
+      <div class="box slide-second">
+      </div>
+    </ion-slide-page>
+    <ion-slide-page>
+      <div class="box slide-third">
+      </div>
+    </ion-slide-page>
+  </ion-slides>
+</ion-content>

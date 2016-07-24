@@ -1,42 +1,57 @@
-<ion-nav-bar class="bar app-top-bar">
-  <ion-nav-back-button>
-  </ion-nav-back-button>
-  <ion-nav-buttons side="left">
-    <button class="button"
-      ng-show="data.slider && data.slider.activeIndex == 0"
-      ng-click="autenticate()">
-      Pular introdução
-    </button>
-    <button class="button"
-      ng-show="data.slider && data.slider.activeIndex > 0"
-      ng-click="previous()">
-      Anterior
-    </button>
-  </ion-nav-buttons>
-  <ion-nav-buttons side="right">
-    <button class="button"
-      ng-show="data.slider && data.slider.activeIndex < 2"
-      ng-click="next()">
-      Próximo
-    </button>
-    <button class="button"
-      ng-show="data.slider && data.slider.activeIndex == 2"
-      ng-click="autenticate()">
-      Let's trade? =)
-    </button>
-  </ion-nav-buttons>
-</ion-nav-bar>
+<ion-view view-title="CI&amp;T Market">
+  <ion-nav-bar class="bar app-top-bar" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="left">
+      <button class="button"
+        ng-show="data.slider && data.slider.activeIndex == 0"
+        ng-click="autenticate()">
+        Pular
+      </button>
+      <button class="button"
+        ng-show="data.slider && data.slider.activeIndex > 0"
+        ng-click="previous()">
+        Anterior
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button"
+        ng-show="data.slider && data.slider.activeIndex < 2"
+        ng-click="next()">
+        Próximo
+      </button>
+      <button class="button"
+        ng-show="data.slider && data.slider.activeIndex == 2"
+        ng-click="autenticate()">
+        Let's trade? =)
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+</ion-view>
 <ion-content scroll="false">
   <ion-slides  options="options" slider="data.slider">
     <ion-slide-page>
-      <div class="box slide-first"></div>
+      <div class="box slide-first">
+        <div class="wrap-intro-message">
+          <p class="intro-message">Liberte as suas ideias</p>
+          <p class="intro-message small">Você está no lugar perfeito para encontrar o que procura</p>
+        </div>
+      </div>
     </ion-slide-page>
     <ion-slide-page>
       <div class="box slide-second">
+        <div class="wrap-intro-message">
+          <p class="intro-message">Cuidamos sempre de você</p>
+          <p class="intro-message small">Com o Ci&amp;T Market, ajudamos você fazer o acompanhamento da transação até que esteja feliz com a sua compra</p>
+        </div>
       </div>
     </ion-slide-page>
     <ion-slide-page>
       <div class="box slide-third">
+        <div class="wrap-intro-message">
+          <p class="intro-message">Chegamos a onde você está</p>
+          <p class="intro-message small">Pesquise, realize, acompanhe os seus pedidos e se comunique com o vendedor através do mobile sem sair do seu posto de trabalho.</p>
+        </div>
       </div>
     </ion-slide-page>
   </ion-slides>

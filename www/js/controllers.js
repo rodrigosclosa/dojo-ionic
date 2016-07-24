@@ -6,10 +6,12 @@
 
     $scope.options = {
       loop: false,
+      effect: 'slide',
       speed: 500
     };
 
     $scope.data = {};
+    $scope.activeIndex = 0;
 
     $scope.autenticate = function() {
       $state.go('market.authentication');
@@ -22,6 +24,7 @@
     $scope.previous = function() {
       $scope.data.slider.slidePrev();
     };
+
 
   });
 

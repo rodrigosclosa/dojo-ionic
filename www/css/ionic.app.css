@@ -9757,18 +9757,18 @@ div.box {
 
 .slide-first {
   background: #00ff00 url("/images/slides/slide-first.jpg") no-repeat fixed center; }
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 375px) {
     .slide-first {
-      background-size: 1140px 640px; } }
+      background-size: 1140px 668px; } }
 
 .slide-second {
   background: #00ff00 url("/images/slides/slide-second.jpg") no-repeat fixed 200px 0px; }
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 375px) {
     .slide-second {
-      background-size: 963px 640px; } }
+      background-size: 963px 668px; } }
 
 .slide-third {
   background: #00ff00 url("/images/slides/slide-third.jpg") no-repeat fixed 400px 0px; }
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 375px) {
     .slide-third {
-      background-size: 996px 640px; } }
+      background-size: 996px 668px; } }

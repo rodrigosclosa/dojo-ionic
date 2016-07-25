@@ -17,7 +17,7 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-$break-small: 360px;
+$break-small: 375px;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
@@ -53,20 +53,20 @@ div.box {
 .slide-first {
   background: #00ff00 url("/images/slides/slide-first.jpg") no-repeat fixed center;
   @media screen and (max-width: $break-small) {
-    background-size: 1140px 640px;
+    background-size: 1140px 668px;
   }
 }
 
 .slide-second {
   background: #00ff00 url("/images/slides/slide-second.jpg") no-repeat fixed 200px 0px;
   @media screen and (max-width: $break-small) {
-    background-size: 963px 640px;
+    background-size: 963px 668px;
   }
 }
 
 .slide-third {
   background: #00ff00 url("/images/slides/slide-third.jpg") no-repeat fixed 400px 0px;
   @media screen and (max-width: $break-small) {
-    background-size: 996px 640px;
+    background-size: 996px 668px;
   }
 }

@@ -9731,15 +9731,15 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-div.box {
-  width: 100%;
-  height: 100%; }
+.box {
+  height: 100%;
+  width: 100%; }
 
 .wrap-intro-message {
-  width: 70%;
   height: 100%;
   margin: 0 auto;
-  padding-top: 80%; }
+  padding-top: 80%;
+  width: 70%; }
 
 .intro-message {
   color: white;
@@ -9747,7 +9747,7 @@ div.box {
   font-weight: bold;
   text-align: center;
   line-height: 130%;
-  text-shadow: -1px 0 #CCCCCC, 0 1px #CCCCCC, 1px 0 #CCCCCC, 0 -1px #CCCCCC; }
+  text-shadow: -1px 0 #ccc, 0 1px #ccc, 1px 0 #ccc, 0 -1px #ccc; }
 
 .intro-message.small {
   color: white;
@@ -9756,19 +9756,19 @@ div.box {
   line-height: 130%; }
 
 .slide-first {
-  background: #00ff00 url("/images/slides/slide-first.jpg") no-repeat fixed center; }
+  background: #0f0 url("/images/slides/slide-first.jpg") no-repeat fixed center; }
   @media screen and (max-width: 375px) {
     .slide-first {
       background-size: 1140px 668px; } }
 
 .slide-second {
-  background: #00ff00 url("/images/slides/slide-second.jpg") no-repeat fixed 200px 0px; }
+  background: #0f0 url("/images/slides/slide-second.jpg") no-repeat fixed 200px 0; }
   @media screen and (max-width: 375px) {
     .slide-second {
       background-size: 963px 668px; } }
 
 .slide-third {
-  background: #00ff00 url("/images/slides/slide-third.jpg") no-repeat fixed 400px 0px; }
+  background: #0f0 url("/images/slides/slide-third.jpg") no-repeat fixed 400px 0; }
   @media screen and (max-width: 375px) {
     .slide-third {
       background-size: 996px 668px; } }

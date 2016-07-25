@@ -16,22 +16,24 @@ $dark:                            #444 !default;
 */
 
 // The path for our ionicons font files, relative to the built CSS in www/css
+
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 $break-small: 375px;
 
-// Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
 
-div.box {
-  width: 100%;
+// Include all of Ionic
+@import 'www/lib/ionic/scss/ionic';
+
+.box {
   height: 100%;
+  width: 100%;
 }
 
 .wrap-intro-message {
-  width: 70%;
   height: 100%;
   margin: 0 auto;
   padding-top: 80%;
+  width: 70%;
 }
 
 .intro-message {
@@ -40,10 +42,10 @@ div.box {
   font-weight: bold;
   text-align: center;
   line-height: 130%;
-  text-shadow: -1px 0 #CCCCCC, 0 1px #CCCCCC, 1px 0 #CCCCCC, 0 -1px #CCCCCC;
+  text-shadow: -1px 0 #ccc, 0 1px #ccc, 1px 0 #ccc, 0 -1px #ccc;
 }
 
-.intro-message.small{
+.intro-message.small {
   color: white;
   font-size: 18px;
   text-align: center;
@@ -51,21 +53,21 @@ div.box {
 }
 
 .slide-first {
-  background: #00ff00 url("/images/slides/slide-first.jpg") no-repeat fixed center;
+  background: #0f0 url('/images/slides/slide-first.jpg') no-repeat fixed center;
   @media screen and (max-width: $break-small) {
     background-size: 1140px 668px;
   }
 }
 
 .slide-second {
-  background: #00ff00 url("/images/slides/slide-second.jpg") no-repeat fixed 200px 0px;
+  background: #0f0 url('/images/slides/slide-second.jpg') no-repeat fixed 200px 0;
   @media screen and (max-width: $break-small) {
     background-size: 963px 668px;
   }
 }
 
 .slide-third {
-  background: #00ff00 url("/images/slides/slide-third.jpg") no-repeat fixed 400px 0px;
+  background: #0f0 url('/images/slides/slide-third.jpg') no-repeat fixed 400px 0;
   @media screen and (max-width: $break-small) {
     background-size: 996px 668px;
   }

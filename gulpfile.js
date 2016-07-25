@@ -15,13 +15,13 @@ var paths = {
       src: {
           base: ['./js/**/*.js']
         , all: [
-                        './js/config/config-base.js'
-                      , './js/config/config-router.js'
-                      , './js/controllers/*.js'
-                      , './js/services/*.js'
-                      , './js/filters/*.js'
-                      , './js/directives/*.js'
-                    ]
+            './js/config/config-base.js'
+          , './js/config/config-router.js'
+          , './js/controllers/*.js'
+          , './js/services/*.js'
+          , './js/filters/*.js'
+          , './js/directives/*.js'
+        ]
       },
       dist : {
         filename: 'market.min.js'

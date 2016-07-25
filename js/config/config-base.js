@@ -1,5 +1,8 @@
-
 'use strict';
+
+/**
+ * Setups the angular application.
+ */
 
 var market = angular.module('market', ['ionic'])
   .run(function($ionicPlatform) {

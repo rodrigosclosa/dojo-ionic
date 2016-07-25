@@ -1,5 +1,9 @@
-'use strict';
 
+/**
+ * Used to define the application routes for this mobile application.
+ * @param {obejct|angular} app - The Angular object
+ *                               that referenciate this app.
+ */
 (function (app){
 
   var config = app.config(function($stateProvider, $urlRouterProvider) {

@@ -1,5 +1,9 @@
-'use strict';
 
+/**
+ * Controller used to perform welcome intro flow.
+ * @param {obejct|angular} app - The Angular object
+ *                               that referenciate this app.
+ */
 (function (app){
 
   app.controller('WelcomeCtrl', function ($scope, $state){
@@ -27,10 +31,5 @@
 
 
   });
-
-  app.controller('AuthenticationCtrl', function (){});
-
-  app.controller('ProfileSettingsCtrl', function (){});
-
 
 })(market);

@@ -6,12 +6,31 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+    sass: ['./scss/**/*.scss']
+  , js: {
+      src: {
+          base: ['./js/**/*.js']
+        , all: [
+                        './js/config/config-base.js'
+                      , './js/config/config-router.js'
+                      , './js/controllers/*.js'
+                      , './js/services/*.js'
+                      , './js/filters/*.js'
+                      , './js/directives/*.js'
+                    ]
+      },
+      dist : {
+        filename: 'market.min.js'
+        , dir: './www/js'
+      }
+    }
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'js', 'watch']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -28,6 +47,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.js.src.base, ['js']);
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -48,4 +68,11 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('js', function() {
+  gulp.src(paths.js.src.all)
+  .pipe(uglify({mangle: false})).on('error', gutil.log)
+  .pipe(concat(paths.js.dist.filename))
+  .pipe(gulp.dest(paths.js.dist.dir));
 });

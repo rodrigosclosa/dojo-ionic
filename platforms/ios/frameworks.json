@@ -2,5 +2,12 @@
     "ImageIO.framework": 1,
     "CoreLocation.framework": 2,
     "AVFoundation.framework": 1,
-    "AudioToolbox.framework": 1
+    "AudioToolbox.framework": 1,
+    "AddressBook.framework": 1,
+    "CoreText.framework": 1,
+    "Security.framework": 1,
+    "StoreKit.framework": 1,
+    "SystemConfiguration.framework": 1,
+    "libz.tbd": 1,
+    "libz.dylib": 1
 }

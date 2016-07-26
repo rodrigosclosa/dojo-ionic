@@ -18,7 +18,7 @@
     $scope.activeIndex = 0;
 
     $scope.autenticate = function() {
-      $state.go('market.authentication');
+      $state.go('authentication');
     };
 
     $scope.next = function() {

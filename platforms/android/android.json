@@ -55,6 +55,14 @@
                         {
                             "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GooglePlus\"><param name=\"android-package\" value=\"nl.xservices.plugins.GooglePlus\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://accounts.google.com/*\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -88,6 +96,16 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.USE_CREDENTIALS\" />",
                             "count": 1
                         }
                     ]
@@ -136,6 +154,9 @@
             "PACKAGE_NAME": "com.ionicframework.helloworld327878"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.helloworld327878"
+        },
+        "cordova-plugin-googleplus": {
             "PACKAGE_NAME": "com.ionicframework.helloworld327878"
         }
     },
@@ -456,6 +477,14 @@
                 "cordova"
             ],
             "runs": true
+        },
+        {
+            "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+            "id": "cordova-plugin-googleplus.GooglePlus",
+            "pluginId": "cordova-plugin-googleplus",
+            "clobbers": [
+                "window.plugins.googleplus"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -466,6 +495,7 @@
         "cordova-plugin-media": "2.3.0",
         "cordova-plugin-file-transfer": "1.5.1",
         "cordova-plugin-compat": "1.0.0",
-        "cordova-plugin-file": "4.2.0"
+        "cordova-plugin-file": "4.2.0",
+        "cordova-plugin-googleplus": "4.0.8"
     }
 }

@@ -8,43 +8,35 @@
 
   var config = app.config(function($stateProvider, $urlRouterProvider) {
 
-    $stateProvider.state('market', {
-      url: "/market",
+    $stateProvider.state('introduction', {
+      url: "/market/intro",
         templateUrl: "templates/public/welcome.html",
         controller: 'WelcomeCtrl'
     });
 
-    $stateProvider.state('market.authentication', {
-      url: "/public/authentication",
-      views: {
+    $stateProvider.state('authentication', {
+      url: "/market/auth",
+      templateUrl: "templates/public/authentication.html",
+      controller: 'AuthenticationCtrl'
+    });
+
+    $stateProvider.state('private', {
+      url: "/market/private",
+      templateUrl: "templates/private/menu.html",
+      controller: 'MainCtrl'
+    });
+
+    $stateProvider.state('private.home', {
+      url: "/home",
+      views : {
         'main-content': {
-          templateUrl: "templates/public/authentication.html",
-          controller: 'AuthenticationCtrl'
+          templateUrl: "templates/private/home.html",
+          controller: 'HomeCtrl'
         }
       }
     });
 
-    $stateProvider.state('market.home', {
-      url: "/private/home",
-      views: {
-        'menu-content': {
-          templateUrl: "templates/private/menu.html",
-          controller: 'MainCtrl'
-        }
-      }
-    });
-
-    $stateProvider.state('market.profile', {
-      url: "/private/profile",
-      views: {
-        'menu-content': {
-          templateUrl: "templates/private/profile-settings.html",
-          controller: 'ProfileSettingsCtrl'
-        }
-      }
-    });
-
-    $urlRouterProvider.otherwise('/market');
+    $urlRouterProvider.otherwise('/market/intro');
 
   });
 

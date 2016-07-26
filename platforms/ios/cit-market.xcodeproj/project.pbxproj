@@ -39,6 +39,16 @@
 		843ABF228F3D4FF48A7AC242 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F755D2BB32444398846317 /* CDVStatusBar.m */; };
 		AE7BFCEBFCC14615AC619890 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB3C2CA9BC4077B9C03367 /* IonicKeyboard.m */; };
 		C57E442BF69A4FA38AC50ED5 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA24E89A114828BA032253 /* UIWebViewExtension.m */; };
+		C13B1310349E41CDA4D905AD /* GooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 824E721DDC514CA89A7548E8 /* GooglePlus.m */; };
+		ABB5897848B641348606AE62 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF669E6B52BF4115BF7F078C /* GoogleOpenSource.framework */; };
+		F0275E2F07EF4F38B1141DAB /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C899E537C5054AFE999748CE /* GoogleSignIn.framework */; };
+		5B85B08BC79E4FFE8E531607 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1806995B544ACDAB2AF378 /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		481FF465F28F4DA68969D529 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99974C847C34787844517C4 /* CoreText.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F481324F94EF4B21B10D66DB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB404DBEDDC40F9A2408583 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AE77002701AE4AB9A1962DFA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41210F536A0946AD92F49E74 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F8A15940AEA74C6BBF3C6EF3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA57239113C4CC0B36B7C57 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3FF7949B92CE4AD7808EFFDA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9204D38E08484695C36ED9 /* libz.tbd */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7D8DF9A14F154E3BA0629CBC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88891CD3A0784759B317071E /* libz.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +131,17 @@
 		3ACA24E89A114828BA032253 /* UIWebViewExtension.m */ = {isa = PBXFileReference; name = "UIWebViewExtension.m"; path = "ionic-plugin-keyboard/UIWebViewExtension.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		55D5080A2CBC472E9A41B848 /* IonicKeyboard.h */ = {isa = PBXFileReference; name = "IonicKeyboard.h"; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		1F9294764D6441BA9BAA55C6 /* UIWebViewExtension.h */ = {isa = PBXFileReference; name = "UIWebViewExtension.h"; path = "ionic-plugin-keyboard/UIWebViewExtension.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		824E721DDC514CA89A7548E8 /* GooglePlus.m */ = {isa = PBXFileReference; name = "GooglePlus.m"; path = "cordova-plugin-googleplus/GooglePlus.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2264CF42BBF84964AAD2FA3E /* GooglePlus.h */ = {isa = PBXFileReference; name = "GooglePlus.h"; path = "cordova-plugin-googleplus/GooglePlus.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		DF669E6B52BF4115BF7F078C /* GoogleOpenSource.framework */ = {isa = PBXFileReference; name = "GoogleOpenSource.framework"; path = "cit-market/Plugins/cordova-plugin-googleplus/GoogleOpenSource.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		C899E537C5054AFE999748CE /* GoogleSignIn.framework */ = {isa = PBXFileReference; name = "GoogleSignIn.framework"; path = "cit-market/Plugins/cordova-plugin-googleplus/GoogleSignIn.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		EB1806995B544ACDAB2AF378 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		A99974C847C34787844517C4 /* CoreText.framework */ = {isa = PBXFileReference; name = "CoreText.framework"; path = "System/Library/Frameworks/CoreText.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		BDB404DBEDDC40F9A2408583 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		41210F536A0946AD92F49E74 /* StoreKit.framework */ = {isa = PBXFileReference; name = "StoreKit.framework"; path = "System/Library/Frameworks/StoreKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		CAA57239113C4CC0B36B7C57 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		FA9204D38E08484695C36ED9 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		88891CD3A0784759B317071E /* libz.dylib */ = {isa = PBXFileReference; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +154,15 @@
 				AE622266ECFA450C879C9767 /* CoreLocation.framework in Frameworks */,
 				21AE123807734702ACD45737 /* AVFoundation.framework in Frameworks */,
 				83A2194882AF40ADB857349C /* AudioToolbox.framework in Frameworks */,
+				ABB5897848B641348606AE62 /* GoogleOpenSource.framework in Frameworks */,
+				F0275E2F07EF4F38B1141DAB /* GoogleSignIn.framework in Frameworks */,
+				5B85B08BC79E4FFE8E531607 /* AddressBook.framework in Frameworks */,
+				481FF465F28F4DA68969D529 /* CoreText.framework in Frameworks */,
+				F481324F94EF4B21B10D66DB /* Security.framework in Frameworks */,
+				AE77002701AE4AB9A1962DFA /* StoreKit.framework in Frameworks */,
+				F8A15940AEA74C6BBF3C6EF3 /* SystemConfiguration.framework in Frameworks */,
+				3FF7949B92CE4AD7808EFFDA /* libz.tbd in Frameworks */,
+				7D8DF9A14F154E3BA0629CBC /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +238,15 @@
 				626A642EE12145C1A10DC263 /* CoreLocation.framework */,
 				A7761AB509FC4D12A706E402 /* AVFoundation.framework */,
 				872021A355E0499891C9B3FE /* AudioToolbox.framework */,
+				DF669E6B52BF4115BF7F078C /* GoogleOpenSource.framework */,
+				C899E537C5054AFE999748CE /* GoogleSignIn.framework */,
+				EB1806995B544ACDAB2AF378 /* AddressBook.framework */,
+				A99974C847C34787844517C4 /* CoreText.framework */,
+				BDB404DBEDDC40F9A2408583 /* Security.framework */,
+				41210F536A0946AD92F49E74 /* StoreKit.framework */,
+				CAA57239113C4CC0B36B7C57 /* SystemConfiguration.framework */,
+				FA9204D38E08484695C36ED9 /* libz.tbd */,
+				88891CD3A0784759B317071E /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -270,6 +309,8 @@
 				3ACA24E89A114828BA032253 /* UIWebViewExtension.m */,
 				55D5080A2CBC472E9A41B848 /* IonicKeyboard.h */,
 				1F9294764D6441BA9BAA55C6 /* UIWebViewExtension.h */,
+				824E721DDC514CA89A7548E8 /* GooglePlus.m */,
+				2264CF42BBF84964AAD2FA3E /* GooglePlus.h */,
 			);
 			name = Plugins;
 			path = "cit-market/Plugins";
@@ -404,6 +445,7 @@
 				843ABF228F3D4FF48A7AC242 /* CDVStatusBar.m in Sources */,
 				AE7BFCEBFCC14615AC619890 /* IonicKeyboard.m in Sources */,
 				C57E442BF69A4FA38AC50ED5 /* UIWebViewExtension.m in Sources */,
+				C13B1310349E41CDA4D905AD /* GooglePlus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +479,11 @@
 				INFOPLIST_FILE = "cit-market/cit-market-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "cit-market";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"cit-market/Plugins/cordova-plugin-googleplus\"",
+					"\"cit-market/Plugins/cordova-plugin-googleplus\"",
+				);
 			};
 			name = Debug;
 		};
@@ -456,6 +503,11 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "cit-market/cit-market-Info.plist";
 				PRODUCT_NAME = "cit-market";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"cit-market/Plugins/cordova-plugin-googleplus\"",
+					"\"cit-market/Plugins/cordova-plugin-googleplus\"",
+				);
 			};
 			name = Release;
 		};

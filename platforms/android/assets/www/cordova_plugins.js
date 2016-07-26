@@ -315,6 +315,14 @@ module.exports = [
             "cordova"
         ],
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+        "id": "cordova-plugin-googleplus.GooglePlus",
+        "pluginId": "cordova-plugin-googleplus",
+        "clobbers": [
+            "window.plugins.googleplus"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -327,7 +335,8 @@ module.exports.metadata =
     "cordova-plugin-media": "2.3.0",
     "cordova-plugin-file-transfer": "1.5.1",
     "cordova-plugin-compat": "1.0.0",
-    "cordova-plugin-file": "4.2.0"
-};
+    "cordova-plugin-file": "4.2.0",
+    "cordova-plugin-googleplus": "4.0.8"
+}
 // BOTTOM OF METADATA
 });

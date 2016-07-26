@@ -111,6 +111,9 @@
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.ionicframework.helloworld327878"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "com.ionicframework.helloworld327878"
         }
     },
     "dependent_plugins": {

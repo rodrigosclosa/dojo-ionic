@@ -1,0 +1,28 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar app-top-bar">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menu-content"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu class="main-menu" side="left">
+    <ion-content scroll="false">
+      <ion-list>
+        <ion-item class="item item-icon-left" nav-clear menu-close ui-sref="app.agenda">
+          <ion-icon name="settings"></ion-icon>
+          <h3 class="menu-text">Configuration</h3>
+        </ion-item>
+        <ion-item class="item item-icon-left" nav-clear menu-close ui-sref="app.agenda">
+          <ion-icon name="exit"></ion-icon>
+          <h3 class="menu-text">Logout</h3>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

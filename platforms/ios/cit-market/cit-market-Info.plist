@@ -29,17 +29,54 @@
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSMainNibFile</key>
-    <string></string>
+    <string/>
     <key>NSMainNibFile~ipad</key>
-    <string></string>
+    <string/>
     <key>UIRequiresFullScreen</key>
     <true/>
     <key>NSAppTransportSecurity</key>
     <dict>
+      <key>NSExceptionDomains</key>
+      <dict>
+        <key>accounts.google.com</key>
+        <dict/>
+      </dict>
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string></string>
+    <string/>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>com.ionicframework.helloworld327878</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.ionicframework.helloworld327878</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>REVERSED_CLIENT_ID</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>611374289590-sfn6g1j64l93a1shhg5d0mep4u66dhr8.apps.googleusercontent.com</string>
+        </array>
+      </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>com.ionicframework.helloworld327878</string>
+      <string>611374289590-sfn6g1j64l93a1shhg5d0mep4u66dhr8.apps.googleusercontent.com</string>
+      <string>com-google-gidconsent</string>
+      <string>com-google-gidconsent-google</string>
+      <string>com.google.gppconsent.2.4.0</string>
+      <string>com.google.gppconsent.2.4.1</string>
+    </array>
   </dict>
 </plist>

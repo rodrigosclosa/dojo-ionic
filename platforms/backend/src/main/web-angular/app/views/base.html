@@ -1,31 +1,40 @@
-<h1>Base</h1>
-
-<form novalidate ng-submit="submit()">
-  <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="text" id="name" ng-model="base.nome">
-    <label class="mdl-textfield__label" for="name">Name</label>
+<md-toolbar >
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Base</h1>
   </div>
+</md-toolbar>
+<md-content flex layout-padding>
+<form novalidate ng-submit="submit()">
+  <md-input-container layout="layout-xs">
+    <label>Name</label>
+    <input ng-model="base.nome">
+  </md-input-container>
   
-  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
-  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Concluir">
-  
-  </input>
+  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar" />
 </form>
+</md-content>
 
 <!-- List -->
-<ul class="demo-list-item mdl-list">
-  <li class="mdl-list__item" ng-repeat="item in list track by $index">
-    <span class="mdl-list__item-primary-content">
-      {{ item.nome }}
-    </span>
-    
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="editar(item)">
-         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    </button>&nbsp;
-    
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="excluir(item)">
-         <i class="fa fa-trash" aria-hidden="true"></i>
-    </button>
+<md-toolbar >
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Relação de Bases</h1>
+  </div>
+</md-toolbar>
+<md-content flex layout-padding>
+  <ul class="demo-list-item mdl-list">
+    <li class="mdl-list__item" ng-repeat="item in list track by $index">
+      <span class="mdl-list__item-primary-content">
+        {{ item.nome }}
+      </span>
+      
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="editar(item)">
+           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </button>&nbsp;
+      
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="excluir(item)">
+           <i class="fa fa-trash" aria-hidden="true"></i>
+      </button>
 
-  </li>
-</ul>
+    </li>
+  </ul>
+</md-content>

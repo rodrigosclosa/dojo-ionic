@@ -12,7 +12,7 @@
   <md-input-container layout="layout-xs">
    <label>Base</label>
     <md-select ng-model="base">
-      <md-option ng-repeat="base in bases track by base.id" value="{{base.id}}" ng-disabled="$index === 1">
+      <md-option ng-repeat="base in bases track by base.id" value="{{ base.id }}" ng-disabled="$index === 1">
             {{base.nome}}
       </md-option>
      </md-select>

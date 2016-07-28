@@ -1,3 +1,4 @@
+'use strict';
 
 angular.module('adminApp')
     .controller('ProdutosCtrl',function($scope, api){

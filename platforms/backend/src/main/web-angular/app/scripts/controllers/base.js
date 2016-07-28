@@ -36,7 +36,7 @@ angular.module('adminApp')
     $scope.submit = function () {
        var newBase = $scope.base;
        console.log(newBase);
-       if(newBase.id != undefined){
+       if(newBase.id !== undefined){
            api.put('base/v1/base', newBase);
        } else{
            api.post('base/v1/base', newBase);
@@ -46,13 +46,13 @@ angular.module('adminApp')
     $scope.load = function() {
        api.get('base/v1/base')
         .success(function(response){
-            console.log(response)
-            $scope.list = response.items;
+          console.log(response);
+          $scope.list = response.items;
         })
         .error(function(err){
-            console.log(err)
+          console.log(err);
         });
-    }
+    };
     
     
     $scope.list = [];

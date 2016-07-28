@@ -24,13 +24,13 @@ angular.module('adminApp')
     var loadPredios = function(){
         api.get('predio/v1/predio')
         .success(function(response){
-            console.log(response)
-            $scope.predios = response.items;
+          console.log(response);
+          $scope.predios = response.items;
         })
         .error(function(err){
-            console.log(err)
+          console.log(err);
         });
-    }
+    };
     
     //
     $scope.editar = function(item) {
@@ -46,7 +46,7 @@ angular.module('adminApp')
     // Post data to api
     $scope.submit = function () {
        var newPredio = $scope.predio;
-       newPredio.idBase = $scope.base.id;
+       newPredio.idBase = $scope.base;
        console.log(newPredio);
        api.post('predio/v1/predio', newPredio).then(loadPredios);
        
@@ -57,14 +57,13 @@ angular.module('adminApp')
         
         api.get('base/v1/base')
         .success(function(response){
-            console.log(response)
-            $scope.bases = response.items;
+          console.log(response);
+          $scope.bases = response.items;
         })
         .error(function(err){
-            console.log(err)
+          console.log(err);
         });
-    }
-    
+    };
     
     $scope.load();
     

@@ -8,12 +8,12 @@ angular.module('app.routes', [])
     // Each state's controller can be found in controllers.js
     $stateProvider
 
-    //.state('app', {
-    //  url: '/app',
-    //  abstract: true,
-    //  templateUrl: 'templates/menu.html',
-    //  controller: 'AppCtrl'
-    //})
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
     
     .state('app.principal', {
       url: '/principal',

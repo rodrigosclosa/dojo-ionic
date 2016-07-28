@@ -1,5 +1,7 @@
-angular.module('app.controllers', [])
-.controller('AppCtrl', function($scope) {
+'use strict';
+angular.module('app.controllers')
+    .controller('AppCtrl', ['$scope', function($scope) {
+      
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -38,4 +40,4 @@ angular.module('app.controllers', [])
 //       $scope.closeLogin();
 //     }, 1000);
 //   };
-})
+}]);

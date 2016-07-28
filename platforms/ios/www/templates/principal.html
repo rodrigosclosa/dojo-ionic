@@ -1,19 +1,15 @@
-<ion-view title="Principal">
+<ion-view view-title="Principal">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <ion-list>
-            <ion-item class="item-thumbnail-left" ng-repeat="produto in produtos track by $index">
+            <ion-item class="item-thumbnail-left" ng-repeat="produto in produtos track by $index" href="#/produto/{{produto.id}}">
                 <img>
                 <h2>{{produto.nome}}</h2>
                 <p>{{produto.usuario.nome}}</p>
             </ion-item>
         </ion-list>
-        <ion-footer-bar>
-            <div class="tabs">
-            <a  class="tab-item"><i class="icon ion-bookmark"></i>Favoritos</a>
-            <a  class="tab-item">Novos</a>
-            <a  class="tab-item">Promoções</a>
-        </div>
-        </ion-footer-bar>
+        
+
+        
     </ion-content>
 </ion-view>
 

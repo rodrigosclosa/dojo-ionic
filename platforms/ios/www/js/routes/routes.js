@@ -21,6 +21,10 @@ angular.module('app.routes', [])
         'menuContent': {
           templateUrl: 'templates/principal.html',
           controller: 'principalCtrl'
+        },
+        'footerContent': {
+          templateUrl: 'templates/footerbar.html',
+          controller: 'footerBarCtrl'
         }
       }
     })
@@ -31,6 +35,10 @@ angular.module('app.routes', [])
         'menuContent': {
           templateUrl: 'templates/produto.html',
           controller: 'produtoCtrl'
+        },
+        'footerContent': {
+          templateUrl: 'templates/footerbar.html',
+          controller: 'footerBarCtrl'
         }
       }
     });

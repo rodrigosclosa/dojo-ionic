@@ -19,17 +19,6 @@ public class UsuarioFavoritoService {
         return usuarioFavoritoDao.listAll();
     }
 
-
-    public List<UsuarioFavorito> list(String nome) throws NotFoundException {
-        List<UsuarioFavorito> list = usuarioFavoritoDao.listByProperty("nome", nome);
-
-        if(list == null || list.size() < 1) {
-            throw new NotFoundException("UsuarioFavorito nao encontrado");
-        }
-
-        return list;
-    }
-
     public List<UsuarioFavorito> listByUsuario(Long id) throws NotFoundException {
         List<UsuarioFavorito> list = usuarioFavoritoDao.listByProperty("idUsuario", id);
 
@@ -57,16 +46,16 @@ public class UsuarioFavoritoService {
         {
             throw new ConflictException("UsuarioFavorito nao informado.");
         }
-        else if(item.getIdProduto() == null || item.getIdUsuario() == null)
+        else if(item.getIdUsuarioFavorito() == null || item.getIdUsuario() == null)
         {
-            throw new ConflictException("Nome do UsuarioFavorito nao informado.");
+            throw new ConflictException("Id do UsuarioFavorito nao informado.");
         }
 
-        UsuarioFavorito u = usuarioFavoritoDao.getUsuarioFavoritoByIds(item.getIdProduto(), item.getIdUsuario());
+        UsuarioFavorito u = usuarioFavoritoDao.getUsuarioFavoritoByIds(item.getIdUsuarioFavorito(), item.getIdUsuario());
 
         if(u != null)
         {
-            throw new ConflictException("UsuarioFavorito ja cadastrado: Usuario:" + u.getIdUsuario()+" Produto: "+u.getIdProduto());
+            throw new ConflictException("UsuarioFavorito ja cadastrado: Usuario:" + u.getIdUsuario()+" Favorito: "+u.getIdUsuarioFavorito());
         }
 
         return usuarioFavoritoDao.insert(item);
@@ -78,7 +67,7 @@ public class UsuarioFavoritoService {
         {
             throw new ConflictException("UsuarioFavorito nao informado.");
         }
-        else if(item.getIdProduto() == null || item.getIdUsuario() == null)
+        else if(item.getIdUsuarioFavorito() == null || item.getIdUsuario() == null)
         {
             throw new ConflictException("Nome do UsuarioFavorito nao informado.");
         }
@@ -90,10 +79,10 @@ public class UsuarioFavoritoService {
             throw new NotFoundException("UsuarioFavorito nao encontrado");
         }
 
-        u = usuarioFavoritoDao.getUsuarioFavoritoByIds(item.getIdProduto(),item.getIdUsuario());
+        u = usuarioFavoritoDao.getUsuarioFavoritoByIds(item.getIdUsuarioFavorito(),item.getIdUsuario());
 
         if(u != null && !u.getId().equals(item.getId())) {
-            throw new ConflictException("UsuarioFavorito ja cadastrado: Usuario:" + u.getIdUsuario() + " Produto: " + u.getIdProduto());
+            throw new ConflictException("UsuarioFavorito ja cadastrado: Usuario:" + u.getIdUsuario() + " Favorito: " + u.getIdUsuarioFavorito());
         }
 
             usuarioFavoritoDao.update(item);

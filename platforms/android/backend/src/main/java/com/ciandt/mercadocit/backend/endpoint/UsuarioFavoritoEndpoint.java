@@ -34,7 +34,7 @@ public class UsuarioFavoritoEndpoint {
 
     @ApiMethod(name = "getUsuarioFavoritos", path = "UsuarioFavorito", httpMethod = ApiMethod.HttpMethod.GET)
     public List<UsuarioFavorito> getUsuarioFavoritos(@Nullable @Named("search") String nome) throws NotFoundException {
-        if(nome == null || nome.isEmpty())
+        if(nome == null)
             return usuarioFavoritoService.list();
         else
             return usuarioFavoritoService.list(nome);

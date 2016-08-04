@@ -1,5 +1,6 @@
 package com.ciandt.mercadocit.backend.entity;
 
+import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.annotation.Entity;
@@ -22,7 +23,7 @@ public class ProdutoFoto {
     private Long id;
 
     @Index
-    private String nome;
+    private Text base64;
 
     @Ignore
     @Nullable
@@ -34,9 +35,9 @@ public class ProdutoFoto {
     public ProdutoFoto() {
     }
 
-    public ProdutoFoto(Long id, String nome, Long idProduto) {
+    public ProdutoFoto(Long id,Text base64, Long idProduto) {
         this.id = id;
-        this.nome = nome;
+        this.base64 = base64;
         this.idProduto = idProduto;
     }
 
@@ -72,11 +73,11 @@ public class ProdutoFoto {
         this.produto = produto;
     }
 
-    public String getNome() {
-        return nome;
+    public Text getBase64() {
+        return base64;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setBase64(Text base64) {
+        this.base64 = base64;
     }
 }

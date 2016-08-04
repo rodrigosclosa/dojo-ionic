@@ -68,16 +68,16 @@ public class ProdutoFotoService {
         {
             throw new ConflictException("ProdutoFoto nao informado.");
         }
-        else if(item.getNome() == null || item.getNome().isEmpty())
+        else if(item.getBase64() == null)
         {
             throw new ConflictException("Nome do ProdutoFoto nao informado.");
         }
 
-        ProdutoFoto u = produtoFotoDao.getByProperty("nome", item.getNome());
+        ProdutoFoto u = produtoFotoDao.getByProperty("base64", item.getBase64());
 
         if(u != null)
         {
-            throw new ConflictException("ProdutoFoto ja cadastrado: " + u.getNome());
+            throw new ConflictException("ProdutoFoto ja cadastrado: " + u.getBase64());
         }
 
         return produtoFotoDao.insert(item);
@@ -89,7 +89,7 @@ public class ProdutoFotoService {
         {
             throw new ConflictException("ProdutoFoto nao informado.");
         }
-        else if(item.getNome() == null || item.getNome().isEmpty())
+        else if(item.getBase64() == null)
         {
             throw new ConflictException("Nome do ProdutoFoto nao informado.");
         }
@@ -101,11 +101,11 @@ public class ProdutoFotoService {
             throw new NotFoundException("ProdutoFoto nao encontrado");
         }
 
-        u = produtoFotoDao.getByProperty("nome", item.getNome());
+        u = produtoFotoDao.getByProperty("base64", item.getBase64());
 
         if(u != null && !u.getId().equals(item.getId()))
         {
-            throw new ConflictException("ProdutoFoto ja cadastrado: " + u.getNome());
+            throw new ConflictException("ProdutoFoto ja cadastrado: " + u.getBase64());
         }
 
         produtoFotoDao.update(item);

@@ -1,8 +1,5 @@
 package com.ciandt.mercadocit.backend.entity;
 
-import com.googlecode.objectify.Objectify;
-import com.googlecode.objectify.ObjectifyService;
-import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
@@ -12,11 +9,7 @@ import javax.annotation.Nullable;
 
 import static com.ciandt.mercadocit.backend.util.OfyService.ofy;
 
-/**
- * Created by gsanchez on 31/03/2016.
- */
-@Entity
-public class UsuarioFavorito {
+public class UsuarioLike {
 
     @Id
     private Long id;
@@ -28,30 +21,28 @@ public class UsuarioFavorito {
     @Nullable
     private Usuario usuario;
 
-    private Long idUsuarioFavorito;
+    @Index
+    private Long idProduto;
 
     @Ignore
     @Nullable
-    private Usuario usuarioFavorito;
+    private Produto produto;
 
-
-    public UsuarioFavorito() {
-    }
-
-    public UsuarioFavorito(Long idUsuario, Long idUsuarioFavorito) {
+    public UsuarioLike(Long idUsuario, Long idProduto) {
         this.idUsuario = idUsuario;
-        this.idUsuarioFavorito = idUsuarioFavorito;
+        this.idProduto = idProduto;
     }
 
     @OnLoad
     void OnLoad(){
-        if(this.idUsuarioFavorito != null){
-            this.usuarioFavorito = ofy().load().type(Usuario.class).id(this.idUsuarioFavorito).now();
+        if(this.idProduto != null){
+            this.produto = ofy().load().type(Produto.class).id(this.idProduto).now();
         }
         if(this.idUsuario != null){
             this.usuario = ofy().load().type(Usuario.class).id(this.idUsuario).now();
         }
     }
+
 
     public Long getId() {
         return id;
@@ -78,20 +69,20 @@ public class UsuarioFavorito {
         this.usuario = usuario;
     }
 
-    public Long getIdUsuarioFavorito() {
-        return idUsuarioFavorito;
+    public Long getIdProduto() {
+        return idProduto;
     }
 
-    public void setIdUsuarioFavorito(Long idUsuarioFavorito) {
-        this.idUsuarioFavorito = idUsuarioFavorito;
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
     }
 
     @Nullable
-    public Usuario getUsuarioFavorito() {
-        return usuarioFavorito;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setUsuarioFavorito(@Nullable Usuario usuarioFavorito) {
-        this.usuarioFavorito = usuarioFavorito;
+    public void setProduto(@Nullable Produto produto) {
+        this.produto = produto;
     }
 }

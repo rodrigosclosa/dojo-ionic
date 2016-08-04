@@ -12,7 +12,7 @@ import static com.ciandt.mercadocit.backend.util.OfyService.ofy;
  */
 public class UsuarioFavoritoDao extends GenericDao<UsuarioFavorito>{
 
-    public UsuarioFavorito getUsuarioFavoritoByIds(Long idProduto, Long idUsuario){
-        return ofy().load().type(UsuarioFavorito.class).filter("idProduto",idProduto).filter("idUsuario",idUsuario).first().now();
+    public UsuarioFavorito getUsuarioFavoritoByIds(Long idUsuarioFavorito, Long idUsuario){
+        return ofy().load().type(UsuarioFavorito.class).filter("idUsuarioFavorito",idUsuarioFavorito).filter("idUsuario",idUsuario).first().now();
     }
 }

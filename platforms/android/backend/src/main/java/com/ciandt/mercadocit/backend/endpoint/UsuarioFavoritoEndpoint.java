@@ -32,21 +32,13 @@ public class UsuarioFavoritoEndpoint {
         usuarioFavoritoService = new UsuarioFavoritoService();
     }
 
-    @ApiMethod(name = "getUsuarioFavoritos", path = "UsuarioFavorito", httpMethod = ApiMethod.HttpMethod.GET)
-    public List<UsuarioFavorito> getUsuarioFavoritos(@Nullable @Named("search") String nome) throws NotFoundException {
-        if(nome == null)
-            return usuarioFavoritoService.list();
-        else
-            return usuarioFavoritoService.list(nome);
-    }
-
     @ApiMethod(name = "getUsuarioFavorito", path = "UsuarioFavorito/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public UsuarioFavorito getUsuarioFavorito(@Named("id") Long id) throws NotFoundException {
         return usuarioFavoritoService.getById(id);
     }
 
-    @ApiMethod(name = "getfotosByProduto", path = "UsuarioFavoritoByUsuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
-    public List<UsuarioFavorito> getfotosByProduto(@Named("id") Long id) throws NotFoundException {
+    @ApiMethod(name = "getfavoritosByUsuario", path = "UsuarioFavoritoByUsuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    public List<UsuarioFavorito> getfavoritosByUsuario(@Named("id") Long id) throws NotFoundException {
         return usuarioFavoritoService.listByUsuario(id);
     }
 

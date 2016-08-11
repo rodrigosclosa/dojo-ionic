@@ -9,25 +9,35 @@ angular.module('app.directives')
             controller : 'SocialController'
         };
     })
-    .controller('SocialController', function($scope, SocialButtons){
-        console.log($scope.produto);
+    .controller('SocialController', function($scope, SocialButtons, api){
+        var usuario = JSON.parse($scope.produto);
         $scope.like = function(){
             SocialButtons.teste(1);
-            console.log("Like",$scope.produto);
+            console.log("Like",$scope.produto.id);
         }
 
-        $scope.bookmark = function(){
-            console.log("bookmark",$scope.produto);
+        $scope.bookmark = function(id){
+            SocialButtons.bookmark(usuario.id)
+                .then((response)=>{
+                    console.log(response);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
         }
 
         $scope.sendEmail = function(){
             console.log("sendemail",$scope.produto);
         }
     })
-    .service('SocialButtons', function(){
+    .service('SocialButtons', function(api){
         return {
-            teste :function(a){
-                console.log(a);
+            bookmark :function(id){
+                return api.post('usuarioFavorito/v1/usuarioFavorito/', {
+                    idUsuario : 5639445604728832,
+                    idUsuarioFavorito : 5664902681198592
+                })
+
             }
         }
     })

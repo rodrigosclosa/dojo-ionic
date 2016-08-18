@@ -1,8 +1,8 @@
 
 angular.module('adminApp')
     .controller('ProdutosCtrl',function($scope, api){
-        
-        api.get('produto/v1/Produto')
+
+        api.get('produto/v1/get')
             .success(function(produtos){
                 console.log(produtos);
                 $scope.list = produtos.items;

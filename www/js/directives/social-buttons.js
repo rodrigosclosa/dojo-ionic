@@ -11,9 +11,10 @@ angular.module('app.directives')
     })
     .controller('SocialController', function($scope, SocialButtons, api){
         var usuario = JSON.parse($scope.produto);
+
         $scope.like = function(){
-            SocialButtons.teste(1);
-            console.log("Like",$scope.produto.id);
+            console.log($scope.produto);
+            SocialButtons.like();
         }
 
         $scope.bookmark = function(id){
@@ -33,11 +34,18 @@ angular.module('app.directives')
     .service('SocialButtons', function(api){
         return {
             bookmark :function(id){
-                return api.post('usuarioFavorito/v1/usuarioFavorito/', {
+                return api.post('usuarioFavorito/v1/new', {
                     idUsuario : 5639445604728832,
                     idUsuarioFavorito : 5664902681198592
                 })
 
+            },
+
+            like : function(id){
+                return api.post('usuarioLike/v1/new', {
+                    idUsuario : 5639445604728832,
+                    idProduto : id
+                })
             }
         }
     })

@@ -27,26 +27,26 @@ angular.module('adminApp')
     $scope.editar = function(item) {
         $scope.base = item;
     };
-    
+
     $scope.excluir = function(item) {
         var base = $scope.list.splice($scope.list.indexOf(item), 1);
         console.log(base);
-        api.delete('base/v1/base/' + base[0].id);
+        api.delete('base/v1/delete/' + base[0].id);
     };
 
     // Post data to api
     $scope.submit = function () {
        var newBase = $scope.base;
        if(newBase.id != undefined){
-           api.put('base/v1/base', newBase)
+           api.put('base/v1/update', newBase)
             .success(function(response){
-                
+
             })
             .error(function(err){
                 console.log(err);
             })
        } else{
-           api.post('base/v1/base', newBase)
+           api.post('base/v1/new', newBase)
                 .success(function(response){
                     response = {};
                     response.nome = $scope.base.nome;
@@ -60,7 +60,7 @@ angular.module('adminApp')
     };
 
     $scope.load = function() {
-       api.get('base/v1/base')
+       api.get('base/v1/get')
         .success(function(response){
             console.log(response)
             $scope.list = response.items;
@@ -69,9 +69,9 @@ angular.module('adminApp')
             console.log(err)
         });
     }
-    
-    
+
+
     $scope.list = [];
     $scope.load();
-    
+
   });

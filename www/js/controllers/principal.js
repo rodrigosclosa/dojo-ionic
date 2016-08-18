@@ -3,7 +3,7 @@ angular.module('app.controllers')
     .controller('principalCtrl', function($scope, api, $http) {
 
      $scope.load = function() {
-       api.get('produto/v1/Produto')
+       api.get('produto/v1/get')
         .success(function(response){
             console.log(response)
             $scope.produtos = response.items;
@@ -12,7 +12,7 @@ angular.module('app.controllers')
             console.log(err)
         });
 
-        api.get('base/v1/base/5629499534213120/predios')
+        api.get('base/v1/get/5629499534213120/predios')
         .success(function(response){
             console.log(response)
             $scope.predios = response.items;

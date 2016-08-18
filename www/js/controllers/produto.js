@@ -34,7 +34,7 @@ angular.module('app.controllers')
         $scope.produto = {};
         //Load product
         $scope.load = function() {
-        api.get('produto/v1/Produto/' + $stateParams.id)
+        api.get('produto/v1/get/' + $stateParams.id)
             .success(function(response){
                 $scope.produto = response;
             })

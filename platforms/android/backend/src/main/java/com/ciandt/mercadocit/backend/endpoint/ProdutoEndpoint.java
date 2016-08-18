@@ -32,7 +32,7 @@ public class ProdutoEndpoint {
         produtoService = new ProdutoService();
     }
 
-    @ApiMethod(name = "getProdutos", path = "Produto", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getProdutos", path = "get", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Produto> getProdutos(@Nullable @Named("search") String nome) throws NotFoundException {
         if(nome == null || nome.isEmpty())
             return produtoService.list();
@@ -40,27 +40,27 @@ public class ProdutoEndpoint {
             return produtoService.list(nome);
     }
 
-    @ApiMethod(name = "getProdutosByUsuario", path = "ProdutoByUsuario", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getProdutosByUsuario", path = "getbyusuario", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Produto> ProdutoByUsuario(@Named("usuario") String usuario) throws NotFoundException {
             return produtoService.listByUsuario(usuario);
     }
 
-    @ApiMethod(name = "getProduto", path = "Produto/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getProduto", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public Produto getProduto(@Named("id") Long id) throws NotFoundException {
         return produtoService.getById(id);
     }
 
-    @ApiMethod(name = "insertProduto", path = "Produto", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "insertProduto", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public void insertProduto(Produto tipo) throws ConflictException, NotFoundException {
         produtoService.insert(tipo);
     }
 
-    @ApiMethod(name = "updateProduto", path = "Produto", httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "updateProduto", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)
     public void updateProduto(Produto Produto) throws NotFoundException, ConflictException {
         produtoService.update(Produto);
     }
 
-    @ApiMethod(name = "deleteProduto", path = "Produto/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
+    @ApiMethod(name = "deleteProduto", path = "delete/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
     public void deleteProduto(@Named("id") Long id) throws NotFoundException, ConflictException {
         produtoService.remove(id);
     }

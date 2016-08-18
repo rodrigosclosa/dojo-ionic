@@ -37,7 +37,7 @@ public class ProdutoFotoEndpoint {
         produtoService = new ProdutoService();
     }
 
-    @ApiMethod(name = "getProdutoFotos", path = "ProdutoFoto", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getProdutoFotos", path = "get", httpMethod = ApiMethod.HttpMethod.GET)
     public List<ProdutoFoto> getProdutoFotos(@Nullable @Named("search") String nome) throws NotFoundException {
         if(nome == null || nome.isEmpty())
             return ProdutoFotoService.list();
@@ -45,27 +45,27 @@ public class ProdutoFotoEndpoint {
             return ProdutoFotoService.list(nome);
     }
 
-    @ApiMethod(name = "getProdutoFoto", path = "ProdutoFoto/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getProdutoFoto", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public ProdutoFoto getProdutoFoto(@Named("id") Long id) throws NotFoundException {
         return ProdutoFotoService.getById(id);
     }
 
-    @ApiMethod(name = "getfotosByProduto", path = "ProdutoFotoByProduto/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getfotosByProduto", path = "getbyproduto/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<ProdutoFoto> getfotosByProduto(@Named("id") Long id) throws NotFoundException {
         return ProdutoFotoService.listByProduto(id);
     }
 
-    @ApiMethod(name = "insertProdutoFoto", path = "ProdutoFoto", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "insertProdutoFoto", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public ProdutoFoto insertProdutoFoto(ProdutoFoto tipo) throws ConflictException, NotFoundException {
         return ProdutoFotoService.insert(tipo);
     }
 
-    @ApiMethod(name = "updateProdutoFoto", path = "ProdutoFoto", httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "updateProdutoFoto", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)
     public void updateProdutoFoto(ProdutoFoto ProdutoFoto) throws NotFoundException, ConflictException {
         ProdutoFotoService.update(ProdutoFoto);
     }
 
-    @ApiMethod(name = "deleteProdutoFoto", path = "ProdutoFoto/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
+    @ApiMethod(name = "deleteProdutoFoto", path = "delete/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
     public void deleteProdutoFoto(@Named("id") Long id) throws NotFoundException, ConflictException {
         ProdutoFotoService.remove(id);
     }

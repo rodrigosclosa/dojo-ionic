@@ -1,7 +1,9 @@
 package com.ciandt.mercadocit.backend.service;
 
 import com.ciandt.mercadocit.backend.dao.BaseDao;
+import com.ciandt.mercadocit.backend.dao.PredioDao;
 import com.ciandt.mercadocit.backend.entity.Base;
+import com.ciandt.mercadocit.backend.entity.Predio;
 import com.google.api.server.spi.response.ConflictException;
 import com.google.api.server.spi.response.NotFoundException;
 
@@ -13,9 +15,11 @@ import java.util.List;
 public class BaseService {
 
     private BaseDao baseDao;
+    private PredioDao predioDao;
 
     public BaseService() {
         baseDao = new BaseDao();
+        predioDao = new PredioDao();
     }
     
     public List<Base> list() {
@@ -29,6 +33,14 @@ public class BaseService {
             throw new NotFoundException("Nenhuma base encontrada");
         }
 
+        for (Base base : list) {
+            List<Predio> predios = predioDao.listByProperty("idBase", base.getId());
+
+            if(predios != null) {
+                base.setPredios(predios);
+            }
+        }
+
         return list;
     }
 
@@ -39,6 +51,14 @@ public class BaseService {
             throw new NotFoundException("Nenhuma base encontrada");
         }
 
+        for (Base base : list) {
+            List<Predio> predios = predioDao.listByProperty("idBase", base.getId());
+
+            if(predios != null) {
+                base.setPredios(predios);
+            }
+        }
+
         return list;
     }
     
@@ -47,6 +67,12 @@ public class BaseService {
 
         if(item == null) {
             throw new NotFoundException("Tipo de incidente não encontrado");
+        }
+
+        List<Predio> predios = predioDao.listByProperty("idBase", item.getId());
+
+        if(predios != null) {
+            item.setPredios(predios);
         }
 
         return item;

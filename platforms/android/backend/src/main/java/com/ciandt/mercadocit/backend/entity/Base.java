@@ -3,7 +3,10 @@ package com.ciandt.mercadocit.backend.entity;
 import com.google.appengine.repackaged.com.google.common.base.Flag;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
+
+import java.util.List;
 
 /**
  * Created by rodrigosclosa on 24/03/16.
@@ -18,6 +21,8 @@ public class Base {
     private String nome;
     private String icone;
     private String sigla;
+    @Ignore
+    private List<Predio> predios;
 
     public Base() {
     }
@@ -59,5 +64,13 @@ public class Base {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+    public List<Predio> getPredios() {
+        return predios;
+    }
+
+    public void setPredios(List<Predio> predios) {
+        this.predios = predios;
     }
 }

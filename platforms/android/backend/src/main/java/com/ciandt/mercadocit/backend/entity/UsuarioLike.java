@@ -1,5 +1,6 @@
 package com.ciandt.mercadocit.backend.entity;
 
+import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
@@ -9,6 +10,7 @@ import javax.annotation.Nullable;
 
 import static com.ciandt.mercadocit.backend.util.OfyService.ofy;
 
+@Entity
 public class UsuarioLike {
 
     @Id

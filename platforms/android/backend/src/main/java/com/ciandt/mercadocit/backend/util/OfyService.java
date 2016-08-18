@@ -7,6 +7,7 @@ import com.ciandt.mercadocit.backend.entity.ProdutoComentario;
 import com.ciandt.mercadocit.backend.entity.ProdutoFoto;
 import com.ciandt.mercadocit.backend.entity.Usuario;
 import com.ciandt.mercadocit.backend.entity.UsuarioFavorito;
+import com.ciandt.mercadocit.backend.entity.UsuarioLike;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
@@ -20,10 +21,11 @@ public class OfyService {
         ObjectifyService.register(Base.class);
         ObjectifyService.register(Predio.class);
         ObjectifyService.register(Usuario.class);
+        ObjectifyService.register(ProdutoComentario.class);
         ObjectifyService.register(Produto.class);
         ObjectifyService.register(ProdutoFoto.class);
         ObjectifyService.register(UsuarioFavorito.class);
-        ObjectifyService.register(ProdutoComentario.class);
+        ObjectifyService.register(UsuarioLike.class);
     }
 
     public static Objectify ofy() {

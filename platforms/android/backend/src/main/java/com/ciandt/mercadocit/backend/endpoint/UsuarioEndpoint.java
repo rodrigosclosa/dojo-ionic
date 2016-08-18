@@ -32,7 +32,7 @@ public class UsuarioEndpoint {
         usuarioService = new UsuarioService();
     }
 
-    @ApiMethod(name = "getUsuarios", path = "usuario", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getUsuarios", path = "get", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Usuario> getUsuarios(@Nullable @Named("search") String nome) throws NotFoundException{
         if(nome == null || nome.isEmpty())
             return usuarioService.list();
@@ -41,22 +41,22 @@ public class UsuarioEndpoint {
     }
 
 
-    @ApiMethod(name = "getUsuario", path = "usuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getUsuario", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public Usuario getUsuario(@Named("id") Long id) throws NotFoundException {
         return usuarioService.getById(id);
     }
 
-    @ApiMethod(name = "insertUsuario", path = "usuario", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "insertUsuario", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public Usuario insertUsuario(Usuario usuario) throws ConflictException, NotFoundException {
         return usuarioService.insert(usuario);
     }
 
-    @ApiMethod(name = "updateUsuario", path = "usuario", httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "updateUsuario", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)
     public void updateUsuario(Usuario usuario) throws NotFoundException, ConflictException {
         usuarioService.update(usuario);
     }
 
-    @ApiMethod(name = "deleteUsuario", path = "usuario/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
+    @ApiMethod(name = "deleteUsuario", path = "delete/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
     public void deleteUsuario(@Named("id") Long id) throws NotFoundException, ConflictException {
         usuarioService.remove(id);
     }

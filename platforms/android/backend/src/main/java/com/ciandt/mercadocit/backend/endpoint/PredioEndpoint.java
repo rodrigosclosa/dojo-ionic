@@ -36,7 +36,7 @@ public class PredioEndpoint {
         baseService = new BaseService();
     }
 
-    @ApiMethod(name = "getPredios", path = "predio", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getPredios", path = "get", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Predio> getPredios(@Nullable @Named("search") String nome) throws NotFoundException {
         if(nome == null || nome.isEmpty())
             return predioService.list();
@@ -44,12 +44,12 @@ public class PredioEndpoint {
             return predioService.list(nome);
     }
 
-    @ApiMethod(name = "getPredio", path = "predio/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getPredio", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public Predio getPredio(@Named("id") Long id) throws NotFoundException {
         return predioService.getById(id);
     }
 
-    @ApiMethod(name = "getPrediosByBase", path = "predios/{base}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getPrediosByBase", path = "getbybase/{base}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Predio> getPrediosByBase(@Named("base") String Nomebase) throws NotFoundException {
         List<Base> base = baseService.list(Nomebase);
         if(base.size() <= 0){
@@ -58,17 +58,17 @@ public class PredioEndpoint {
         return predioService.listByBase(base.get(0).getId());
     }
 
-    @ApiMethod(name = "insertPredio", path = "predio", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "insertPredio", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public Predio insertPredio(Predio tipo) throws ConflictException, NotFoundException {
         return predioService.insert(tipo);
     }
 
-    @ApiMethod(name = "updatePredio", path = "predio", httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "updatePredio", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)
     public void updatePredio(Predio Predio) throws NotFoundException, ConflictException {
         predioService.update(Predio);
     }
 
-    @ApiMethod(name = "deletePredio", path = "predio/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
+    @ApiMethod(name = "deletePredio", path = "delete/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
     public void deletePredio(@Named("id") Long id) throws NotFoundException, ConflictException {
         predioService.remove(id);
     }

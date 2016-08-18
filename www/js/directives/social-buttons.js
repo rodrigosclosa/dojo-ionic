@@ -13,8 +13,8 @@ angular.module('app.directives')
         var usuario = JSON.parse($scope.produto);
 
         $scope.like = function(){
-            console.log($scope.produto);
-            SocialButtons.like();
+            $scope.produto = JSON.parse($scope.produto);
+            SocialButtons.like(parseInt($scope.produto.id));
         }
 
         $scope.bookmark = function(id){

@@ -32,27 +32,27 @@ public class UsuarioFavoritoEndpoint {
         usuarioFavoritoService = new UsuarioFavoritoService();
     }
 
-    @ApiMethod(name = "getUsuarioFavorito", path = "UsuarioFavorito/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getUsuarioFavorito", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public UsuarioFavorito getUsuarioFavorito(@Named("id") Long id) throws NotFoundException {
         return usuarioFavoritoService.getById(id);
     }
 
-    @ApiMethod(name = "getfavoritosByUsuario", path = "UsuarioFavoritoByUsuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getfavoritosByUsuario", path = "getbyusuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<UsuarioFavorito> getfavoritosByUsuario(@Named("id") Long id) throws NotFoundException {
         return usuarioFavoritoService.listByUsuario(id);
     }
 
-    @ApiMethod(name = "insertUsuarioFavorito", path = "UsuarioFavorito", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "insertUsuarioFavorito", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public UsuarioFavorito insertUsuarioFavorito(UsuarioFavorito tipo) throws ConflictException, NotFoundException {
         return usuarioFavoritoService.insert(tipo);
     }
 
-    @ApiMethod(name = "updateUsuarioFavorito", path = "UsuarioFavorito", httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "updateUsuarioFavorito", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)
     public void updateUsuarioFavorito(UsuarioFavorito UsuarioFavorito) throws NotFoundException, ConflictException {
         usuarioFavoritoService.update(UsuarioFavorito);
     }
 
-    @ApiMethod(name = "deleteUsuarioFavorito", path = "UsuarioFavorito/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
+    @ApiMethod(name = "deleteUsuarioFavorito", path = "delete/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
     public void deleteUsuarioFavorito(@Named("id") Long id) throws NotFoundException, ConflictException {
         usuarioFavoritoService.remove(id);
     }

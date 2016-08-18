@@ -37,7 +37,7 @@ public class BaseEndpoint {
         predioService = new PredioService();
     }
 
-    @ApiMethod(name = "getBases", path = "base", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getBases", path = "get", httpMethod = ApiMethod.HttpMethod.GET)
     public List<Base> getBases(@Nullable @Named("search") String nome) throws NotFoundException {
         if(nome == null || nome.isEmpty())
             return baseService.list();
@@ -45,27 +45,27 @@ public class BaseEndpoint {
             return baseService.list(nome);
     }
 
-    @ApiMethod(name = "getBase", path = "base/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getBase", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public Base getBase(@Named("id") Long id) throws NotFoundException {
         return baseService.getById(id);
     }
 
-    @ApiMethod(name = "getBasePredios", path = "base/{id}/predios", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getBasePredios", path = "getprediosbybase/{id}/predios", httpMethod = ApiMethod.HttpMethod.GET)
     public  List<Predio> getBasePredios(@Named("id") Long id) throws NotFoundException {
         return predioService.listByBase(id);
     }
 
-    @ApiMethod(name = "insertBase", path = "base", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "insertBase", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public Base insertBase(Base tipo) throws ConflictException, NotFoundException {
         return baseService.insert(tipo);
     }
 
-    @ApiMethod(name = "updateBase", path = "base", httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "updateBase", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)
     public void updateBase(Base base) throws NotFoundException, ConflictException {
         baseService.update(base);
     }
 
-    @ApiMethod(name = "deleteBase", path = "base/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
+    @ApiMethod(name = "deleteBase", path = "delete/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
     public void deleteBase(@Named("id") Long id) throws NotFoundException, ConflictException {
         baseService.remove(id);
     }

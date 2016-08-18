@@ -31,27 +31,27 @@ public class UsuarioLikeEndpoint {
         usuarioLikeService = new UsuarioLikeService();
     }
 
-    @ApiMethod(name = "getUsuarioLike", path = "UsuarioLike/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getUsuarioLike", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public UsuarioLike getUsuarioLike(@Named("id") Long id) throws NotFoundException {
         return usuarioLikeService.getById(id);
     }
 
-    @ApiMethod(name = "getLikeByUsuario", path = "LikeByUsuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "getLikeByUsuario", path = "getbyusuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<UsuarioLike> getLikeByUsuario(@Named("id") Long id) throws NotFoundException {
         return usuarioLikeService.listByUsuario(id);
     }
 
-    @ApiMethod(name = "insertUsuarioLike", path = "UsuarioLike", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "insertUsuarioLike", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public UsuarioLike insertUsuarioLike(UsuarioLike tipo) throws ConflictException, NotFoundException {
         return usuarioLikeService.insert(tipo);
     }
 
-    @ApiMethod(name = "updateUsuarioLike", path = "UsuarioLike", httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "updateUsuarioLike", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)
     public void updateUsuarioLike(UsuarioLike UsuarioLike) throws NotFoundException, ConflictException {
         usuarioLikeService.update(UsuarioLike);
     }
 
-    @ApiMethod(name = "deleteUsuarioLike", path = "UsuarioLike/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
+    @ApiMethod(name = "deleteUsuarioLike", path = "delete/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
     public void deleteUsuarioLike(@Named("id") Long id) throws NotFoundException, ConflictException {
         usuarioLikeService.remove(id);
     }

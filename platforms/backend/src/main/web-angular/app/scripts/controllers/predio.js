@@ -22,7 +22,7 @@ angular.module('adminApp')
     $scope.bases = [];
 
     var loadPredios = function(){
-        api.get('predio/v1/predio')
+        api.get('predio/v1/get')
         .success(function(response){
           console.log(response);
           $scope.predios = response.items;
@@ -39,8 +39,7 @@ angular.module('adminApp')
     
     $scope.excluir = function(item) {
         var predio = $scope.predios.splice($scope.predios.indexOf(item), 1);
-        console.log(predio);
-        api.delete('predio/v1/predio/' + predio[0].id);
+        api.delete('predio/v1/delete/' + predio[0].id);
     };
 
     // Post data to api
@@ -48,16 +47,15 @@ angular.module('adminApp')
        var newPredio = $scope.predio;
        newPredio.idBase = $scope.base;
        console.log(newPredio);
-       api.post('predio/v1/predio', newPredio).then(loadPredios);
+       api.post('predio/v1/new', newPredio).then(loadPredios);
        
     };
 
     $scope.load = function() {
        loadPredios();
         
-        api.get('base/v1/base')
+        api.get('base/v1/get')
         .success(function(response){
-          console.log(response);
           $scope.bases = response.items;
         })
         .error(function(err){

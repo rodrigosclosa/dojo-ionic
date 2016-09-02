@@ -8,7 +8,7 @@
  * Controller of the adminApp
  */
 angular.module('adminApp')
-  .controller('BaseCtrl', function ($scope,api) {
+  .controller('BaseCtrl', function ($scope, api) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -29,8 +29,11 @@ angular.module('adminApp')
     $scope.excluir = function(item) {
         var base = $scope.list.splice($scope.list.indexOf(item), 1);
         console.log(base);
-        api.delete('base/v1/delete/' + base[0].id);
+        api.delete('base/v1/delete/' + base[0].id)
         // o retorno será true ou false + mensagem de erro - caso exista
+        .success(function(data){
+          console.log("oi" + data);
+        });
     };
 
     // Post data to api
@@ -42,10 +45,15 @@ angular.module('adminApp')
            api.put('base/v1/update', newBase);
            //o retorno será true ou false + mensagem de erro - caso exista
        } else {
-           api.post('base/v1/new', newBase)
-           .success(function(response){
-              console.log(response);
-           });
+          api.post('base/v1/new', newBase)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(response) {
+            $scope.messages = {
+              error: response.msg
+            };
+          });
        }
     };
 

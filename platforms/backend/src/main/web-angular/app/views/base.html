@@ -4,6 +4,10 @@
   </div>
 </md-toolbar>
 <md-content flex layout-padding>
+<div ng-if="messages.error" role="alert" class="">
+  <p class="center-align" ng-repeat="error in messages.error">{{ error.msg }}</p>
+</div>
+
 <form novalidate ng-submit="submit()">
   <md-input-container layout="layout-xs">
     <label>Name</label>
@@ -11,6 +15,7 @@
   </md-input-container>
   
   <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar" />
+  <input type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Limpar" />
 </form>
 </md-content>
 

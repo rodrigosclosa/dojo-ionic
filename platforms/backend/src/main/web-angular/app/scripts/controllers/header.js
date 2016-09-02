@@ -9,7 +9,6 @@
  */
 angular.module('adminApp')
   .controller('HeaderCtrl', function($scope, api, $location, $window) {
-    console.log("Ola");
 
     $scope.isActive = function (viewLocation) {
        var active = (viewLocation === $location.path());

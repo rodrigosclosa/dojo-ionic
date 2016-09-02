@@ -35,19 +35,18 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
             <a class="navbar-brand" href="#/">admin</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/produtos">Produtos</a></li>
               <li><a ng-href="#/base">Base</a></li>
               <li><a ng-href="#/predio">Predio</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+              <!--<li><a ng-href="#/about">About</a></li>-->
+              <!--<li><a ng-href="#/">Contact</a></li>-->
+              <li><a href="javascript:void(0);" class="btn" id="signinButton">Google Login</a></li>
             </ul>
           </div>
         </div>
@@ -66,7 +65,7 @@
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
+    <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
@@ -102,5 +101,8 @@
         <script src="scripts/services/api.js"></script>
         <script src="scripts/controllers/predio.js"></script>
         <!-- endbuild -->
+
+    <!-- Google Cloud Client Library -->
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
 </body>
 </html>

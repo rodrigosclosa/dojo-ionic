@@ -42,6 +42,7 @@ public class UsuarioFavoritoEndpoint {
         return usuarioFavoritoService.listByUsuario(id);
     }
 
+
     @ApiMethod(name = "insertUsuarioFavorito", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public UsuarioFavorito insertUsuarioFavorito(UsuarioFavorito tipo) throws ConflictException, NotFoundException {
         return usuarioFavoritoService.insert(tipo);

@@ -35,6 +35,9 @@ public class UsuarioLike {
         this.idProduto = idProduto;
     }
 
+    public UsuarioLike() {
+    }
+
     @OnLoad
     void OnLoad(){
         if(this.idProduto != null){

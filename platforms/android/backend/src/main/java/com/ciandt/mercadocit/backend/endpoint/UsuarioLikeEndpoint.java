@@ -1,5 +1,6 @@
 package com.ciandt.mercadocit.backend.endpoint;
 
+import com.ciandt.mercadocit.backend.entity.Produto;
 import com.ciandt.mercadocit.backend.entity.UsuarioLike;
 import com.ciandt.mercadocit.backend.service.UsuarioLikeService;
 import com.google.api.server.spi.config.Api;
@@ -8,6 +9,7 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.ConflictException;
 import com.google.api.server.spi.response.NotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Named;
@@ -39,6 +41,21 @@ public class UsuarioLikeEndpoint {
     @ApiMethod(name = "getLikeByUsuario", path = "getbyusuario/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<UsuarioLike> getLikeByUsuario(@Named("id") Long id) throws NotFoundException {
         return usuarioLikeService.listByUsuario(id);
+    }
+
+    @ApiMethod(name = "getLikeByProduto", path = "getbyproduto/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    public List<UsuarioLike> getLikeByProduto(@Named("id") Long id) throws NotFoundException {
+        return usuarioLikeService.listByProduto(id);
+    }
+
+    @ApiMethod(name = "getProdutosByLikeUsuario", path = "getProdutoLike/{id}", httpMethod = ApiMethod.HttpMethod.GET)
+    public List<Produto> getProdutosByLikeUsuario(@Named("id") Long id) throws NotFoundException {
+        List<UsuarioLike> usuarioLikes = usuarioLikeService.listByUsuario(id);
+        List<Produto> listProdutos = new ArrayList<>();
+        for(UsuarioLike userLike : usuarioLikes){
+            listProdutos.add(userLike.getProduto());
+        }
+        return listProdutos;
     }
 
     @ApiMethod(name = "insertUsuarioLike", path = "new", httpMethod = ApiMethod.HttpMethod.POST)

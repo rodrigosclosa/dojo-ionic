@@ -31,6 +31,16 @@ public class UsuarioLikeService {
         return list;
     }
 
+    public List<UsuarioLike> listByProduto(Long id) throws NotFoundException {
+        List<UsuarioLike> list = usuarioLikeDao.listByProperty("idProduto", id);
+
+        if(list == null || list.size() < 1) {
+            throw new NotFoundException("UsuarioLike nao encontrado");
+        }
+
+        return list;
+    }
+
 
     public UsuarioLike getById(Long id) throws NotFoundException {
         UsuarioLike item = usuarioLikeDao.getByKey(id);

@@ -45,6 +45,12 @@ public class ProdutoEndpoint {
             return produtoService.listByUsuario(usuario);
     }
 
+    @ApiMethod(name = "getProdutosByOffset", path = "getByOffset", httpMethod = ApiMethod.HttpMethod.GET)
+    public List<Produto> getProdutosByOffset(@Named("offset") int offset) throws NotFoundException {
+        return produtoService.listByOffset(offset);
+    }
+
+
     @ApiMethod(name = "getProduto", path = "get/{id}", httpMethod = ApiMethod.HttpMethod.GET)
     public Produto getProduto(@Named("id") Long id) throws NotFoundException {
         return produtoService.getById(id);

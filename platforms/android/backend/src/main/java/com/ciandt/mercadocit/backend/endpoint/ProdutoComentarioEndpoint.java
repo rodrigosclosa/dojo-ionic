@@ -30,11 +30,9 @@ import javax.inject.Named;
 public class ProdutoComentarioEndpoint {
 
     private ProdutoComentarioService produtoComentarioService;
-    private ProdutoService produtoService;
 
     public ProdutoComentarioEndpoint() {
         produtoComentarioService = new ProdutoComentarioService();
-        produtoService = new ProdutoService();
     }
 
     @ApiMethod(name = "getProdutoComentarios", path = "get", httpMethod = ApiMethod.HttpMethod.GET)
@@ -50,8 +48,7 @@ public class ProdutoComentarioEndpoint {
 
     @ApiMethod(name = "getProdutoComentariosByProduto", path = "getbyproduto/{produto}", httpMethod = ApiMethod.HttpMethod.GET)
     public List<ProdutoComentario> getProdutoComentariosByProduto(@Named("produto") Long idProduto) throws NotFoundException {
-        Produto produto = produtoService.getById(idProduto);
-        return produtoComentarioService.listByProduto(produto.getId());
+        return produtoComentarioService.listByProduto(idProduto);
     }
 
     @ApiMethod(name = "insertProdutoComentario", path = "new", httpMethod = ApiMethod.HttpMethod.POST)

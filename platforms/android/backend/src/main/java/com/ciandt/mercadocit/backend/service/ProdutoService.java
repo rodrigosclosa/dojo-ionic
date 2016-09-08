@@ -54,6 +54,10 @@ public class ProdutoService {
         return list;
     }
 
+    public List<Produto> listByOffset(int offset) throws NotFoundException{
+        return produtoDao.getByOffset(offset);
+    }
+
 
     public Produto getById(Long id) throws NotFoundException {
         Produto item = produtoDao.getByKey(id);

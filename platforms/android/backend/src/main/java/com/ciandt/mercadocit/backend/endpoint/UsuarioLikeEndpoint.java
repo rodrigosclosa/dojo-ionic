@@ -2,6 +2,8 @@ package com.ciandt.mercadocit.backend.endpoint;
 
 import com.ciandt.mercadocit.backend.entity.Produto;
 import com.ciandt.mercadocit.backend.entity.UsuarioLike;
+import com.ciandt.mercadocit.backend.model.RetornoApiBase;
+import com.ciandt.mercadocit.backend.model.RetornoApiBoolean;
 import com.ciandt.mercadocit.backend.service.UsuarioLikeService;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -61,6 +63,11 @@ public class UsuarioLikeEndpoint {
     @ApiMethod(name = "insertUsuarioLike", path = "new", httpMethod = ApiMethod.HttpMethod.POST)
     public UsuarioLike insertUsuarioLike(UsuarioLike tipo) throws ConflictException, NotFoundException {
         return usuarioLikeService.insert(tipo);
+    }
+
+    @ApiMethod(name = "likeUsuarioLike", path = "like", httpMethod = ApiMethod.HttpMethod.POST)
+    public RetornoApiBoolean likeUsuarioLike(UsuarioLike tipo) throws ConflictException, NotFoundException {
+        return usuarioLikeService.like(tipo);
     }
 
     @ApiMethod(name = "updateUsuarioLike", path = "update", httpMethod = ApiMethod.HttpMethod.PUT)

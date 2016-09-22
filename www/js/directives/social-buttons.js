@@ -42,7 +42,7 @@ angular.module('app.directives')
             },
 
             like : function(id){
-                return api.post('usuarioLike/v1/new', {
+                return api.post('usuarioLike/v1/like', {
                     idUsuario : 5639445604728832,
                     idProduto : id
                 })

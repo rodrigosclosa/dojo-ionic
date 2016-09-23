@@ -1,4 +1,11 @@
-
+'use strict';
+/**
+ * @ngdoc function
+ * @name adminApp.controller:ProdutosCtrl
+ * @description
+ * # ProdutosCtrl
+ * Controller of the adminApp
+ */
 angular.module('adminApp')
     .controller('ProdutosCtrl',function($scope, api){
 

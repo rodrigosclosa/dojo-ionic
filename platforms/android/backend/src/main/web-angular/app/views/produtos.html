@@ -1,4 +1,13 @@
-<h1>Produtos</h1>
+ <md-toolbar >
+   <div class="md-toolbar-tools">
+     <h2 class="md-flex">Produtos</h1>
+    </div>
+  </md-toolbar>
+  <md-content flex layout-padding>
+ <div ng-if="messages.error" role="alert" class="">
+   <p class="center-align" ng-repeat="error in messages.error">{{ error.msg }}</p>
+ </div>
+ </md-content>
 
 <ul class="demo-list-item mdl-list">
     <li class="mdl-list__item mdl-list__item--three-line" ng-repeat="produto in list track by $index">

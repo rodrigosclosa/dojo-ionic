@@ -14,6 +14,7 @@ angular
     'ngAria',
     'ngCookies',
     'ngMessages',
+    'ngMaterial',
     'ngResource',
     'ngRoute',
     'ngSanitize',

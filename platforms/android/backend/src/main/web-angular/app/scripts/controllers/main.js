@@ -48,11 +48,11 @@
     $scope.init = function() {
       var apisToLoad;
       var callback = function() {
-        if (--apisToLoad == 0) {
+        if (--apisToLoad === 0) {
           //google.appengine.samples.hello.enableButtons();
           $scope.signin(true, $scope.userAuthed);
         }
-      }
+      };
 
       apisToLoad = 9; // must match number of calls to gapi.client.load()
       gapi.client.load('base', 'v1', callback, apiRoot);

@@ -17,11 +17,11 @@ angular.module('adminApp')
 
     // New item
     $scope.base = {
-        'nome' : '',
-        'icone' : 'teste'
+      'nome' : '',
+      'icone' : 'teste'
     };
 
-    $scope.list = []
+    $scope.list = [];
 
     //
     $scope.editar = function(item) {
@@ -37,39 +37,38 @@ angular.module('adminApp')
     // Post data to api
     $scope.submit = function () {
        var newBase = $scope.base;
-       if(newBase.id != undefined){
-           api.put('base/v1/update', newBase)
-            .success(function(response){
-
-            })
-            .error(function(err){
-                console.log(err);
-            })
-       } else{
-           api.post('base/v1/new', newBase)
-                .success(function(response){
-                    response = {};
-                    response.nome = $scope.base.nome;
-                    response.id = 10;
-                    $scope.list.push(response);
-                })
-                .error(function(err){
-                    console.log(err);
-                })
+       if(newBase.id !== undefined){
+         api.put('base/v1/update', newBase)
+          .success(function(response){
+            console.log(response);
+          })
+          .error(function(err){
+            console.log(err);
+          });
+       } else {
+        api.post('base/v1/new', newBase)
+          .success(function(response){
+            response = {};
+            response.nome = $scope.base.nome;
+            response.id = 10;
+            $scope.list.push(response);
+          })
+          .error(function(err){
+            console.log(err);
+          });
        }
     };
 
     $scope.load = function() {
-       api.get('base/v1/get')
+      api.get('base/v1/get')
         .success(function(response){
-            console.log(response)
-            $scope.list = response.items;
+          console.log(response);
+          $scope.list = response.items;
         })
         .error(function(err){
-            console.log(err)
+          console.log(err);
         });
-    }
-
+    };
 
     $scope.list = [];
     $scope.load();

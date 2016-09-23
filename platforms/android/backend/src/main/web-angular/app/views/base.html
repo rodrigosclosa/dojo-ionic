@@ -1,4 +1,12 @@
-<h1>Base</h1>
+ <md-toolbar >
+   <div class="md-toolbar-tools">
+     <h2 class="md-flex">Base</h1>
+    </div>
+  </md-toolbar>
+  <md-content flex layout-padding>
+ <div ng-if="messages.error" role="alert" class="">
+   <p class="center-align" ng-repeat="error in messages.error">{{ error.msg }}</p>
+ </div>
 
 <form novalidate ng-submit="submit()">
   <div class="mdl-textfield mdl-js-textfield">

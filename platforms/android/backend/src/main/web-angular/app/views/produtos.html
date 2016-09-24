@@ -4,24 +4,24 @@
     </div>
   </md-toolbar>
   <md-content flex layout-padding>
-   <div ng-if="messages.error" role="alert" class="">
-     <p class="center-align" ng-repeat="error in messages.error">{{ error.msg }}</p>
-   </div>
+  <div ng-if="error" role="alert" class="text-danger" style="color: red;">
+    <p class="center-align red" >{{ error }}</p>
+  </div>
  
   <ul class="demo-list-item mdl-list">
-    <li class="mdl-list__item mdl-list__item--three-line" ng-repeat="produto in list track by $index">
+    <li class="mdl-list__item mdl-list__item--three-line" ng-repeat="produto in produtos track by $index">
         <span class="mdl-list__item-primary-content">
-            <span>{{produto.nome}}</span>
+            <span>{{ produto.nome}}</span>
             <span class="mdl-list__item-text-body">
                 Usuário: {{ produto.usuario.nome }}
             </span>
         </span>
 
-        <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="editar(item)">
+        <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="editar(item)" aria-label="Editar">
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </md-button>
         
-        <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="exckuir(item)">
+        <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="exckuir(item)" aria-label="Excluir">
             <i class="fa fa-trash" aria-hidden="true"></i>
         </md-button>
     </li>

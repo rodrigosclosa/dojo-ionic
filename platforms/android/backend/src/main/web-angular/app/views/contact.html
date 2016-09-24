@@ -5,12 +5,17 @@
 </md-toolbar>
 <md-content flex layout-padding>
   <div layout="column" layout-padding ng-cloak>
-    <md-content class="md-no-momentum">
-      <md-input-container class="md-icon-float md-block">
-        <!-- Use floating label instead of placeholder -->
-        <label for="nome">Nome</label>
-        <input ng-model="user.nome" type="text" id="nome">
-      </md-input-container>
-    </md-content>
+    <form novalidate ng-submit="submit()" name="contact">
+      <p>Caso tenha problemas com esta área Administrativa, por favor entre em contato conosco através do formulárioa abaixo:</p>
+      <md-content class="md-no-momentum">
+        <md-input-container class="md-icon-float md-block">
+          <!-- Use floating label instead of placeholder -->
+          <label for="nome">Nome</label>
+          <input ng-model="user.nome" type="text" id="nome" required>
+        </md-input-container>
+      </md-content>
+
+      <input ng-disabled="contact.$invalid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Enviar">
+    </form>
   </div>
 </md-content>

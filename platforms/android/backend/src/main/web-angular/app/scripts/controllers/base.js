@@ -21,23 +21,40 @@ angular.module('adminApp')
       'icone' : 'teste'
     };
 
+    //created an array to avoid the page load waiting for an array
     $scope.list = [];
 
+    //load all the Base itens on Load Page
+    $scope.load = function() {
+      api.get('base/v1/get')
+        .success(function(response){
+          console.log("Loading all Data...");
+          $scope.list = response.items;//get the Object Items data
+
+        }).catch(function(response){
+          console.log(response.data);
+          $scope.error = response.data;
+        });
+    };
+
+    //On editar click button will be load the content on the input field
     $scope.editar = function(item) {
       $scope.base = item;
     };
 
+    //on excluir click button will delete the content
     $scope.excluir = function(item) {
       var base = $scope.list.splice($scope.list.indexOf(item), 1);
       console.log(base);
       api.delete('base/v1/delete/' + base[0].id);
+      $scope.error = "A Base foi deletada corretamente";
     };
 
     // Insert New or Edit Data (Base) on API
     $scope.submit = function () {
        var newBase = $scope.base;
        if(newBase.id !== undefined) {
-         api.put('base/v1/update', newBase)
+         api.put('base/v1/update/', newBase)
           .success(function(response){
             console.log(response);
           })
@@ -69,21 +86,7 @@ angular.module('adminApp')
        }
     };
 
-    //load all the itens
-    $scope.load = function() {
-      api.get('base/v1/get')
-        .success(function(response){
-          console.log("Loading all Data...");
-          $scope.list = response.items;
-
-        }).catch(function(response){
-          console.log(response.data);
-          $scope.error = response.data;
-        });
-    };
-
-    $scope.list = [];
+    //to call the Load function on Load the Page.
     $scope.load();
-
   });
 

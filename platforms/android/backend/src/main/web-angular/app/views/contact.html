@@ -4,13 +4,13 @@
    </div>
 </md-toolbar>
 <md-content flex layout-padding>
-  <div layout="column" ng-cloak class="md-inline-form">
-    <form novalidate ng-submit="submit()">
-      <div class="md-block md-input-has-placeholder">
-        <input class="ng-pristine ng-valid md-input ng-empty ng-touched" type="text" id="name" ng-model="user.nome" placeholder="Nome" aria-label="Nome">
-      </div>
-
-      <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Enviar">
-    </form>
+  <div layout="column" layout-padding ng-cloak>
+    <md-content class="md-no-momentum">
+      <md-input-container class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label for="nome">Nome</label>
+        <input ng-model="user.nome" type="text" id="nome">
+      </md-input-container>
+    </md-content>
   </div>
 </md-content>

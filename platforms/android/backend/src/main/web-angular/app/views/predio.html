@@ -4,24 +4,25 @@
     </div>
   </md-toolbar>
   <md-content flex layout-padding>
-   <div ng-if="messages.error" role="alert" class="">
-     <p class="center-align" ng-repeat="error in messages.error">{{ error.msg }}</p>
+   <div ng-if="error" role="alert" class="text-danger" style="color: red;">
+     <p class="center-align red" >{{ error }}</p>
    </div>
+   
     <div layout="column" layout-padding ng-cloak>
-      <form novalidate ng-submit="submit()">
+      <form novalidate ng-submit="submit()" name="predio">
         <md-content class="md-no-momentum">
           <md-input-container class="md-icon-float md-block">
             <label for="nome">Nome</label>
-            <input type="text" id="nome" ng-model="predio.nome">
+            <input type="text" id="nome" ng-model="predio.nome" required>
           </md-input-container>
         </md-content>
 
         <div class="mdl-textfield mdl-js-textfield">
-          <select ng-options="base as base.nome for base in bases track by base.id" ng-model="base"></select>
+          <select ng-options="base as base.nome for base in bases track by base.id" ng-model="base" required></select>
         </div>
 
-        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
-        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Concluir">
+        <input ng-disabled="predio.$invalid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
+        <md-button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" aria-label="Limpar">Limpar</md-button>
       </form>
     </div>
   <!-- List -->
@@ -34,11 +35,11 @@
         {{ predio.base.nome  }}
       </span>
 
-      <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="editar(predio)">
+      <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="editar(predio)" aria-label="Editar">
            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
       </md-button>
 
-      <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="excluir(predio)">
+      <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="excluir(predio)" aria-label="Excluir">
            <i class="fa fa-trash" aria-hidden="true"></i>
       </md-button>
 

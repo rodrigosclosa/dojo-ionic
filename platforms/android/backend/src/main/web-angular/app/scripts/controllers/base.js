@@ -23,50 +23,62 @@ angular.module('adminApp')
 
     $scope.list = [];
 
-    //
     $scope.editar = function(item) {
-        $scope.base = item;
+      $scope.base = item;
     };
 
     $scope.excluir = function(item) {
-        var base = $scope.list.splice($scope.list.indexOf(item), 1);
-        console.log(base);
-        api.delete('base/v1/delete/' + base[0].id);
+      var base = $scope.list.splice($scope.list.indexOf(item), 1);
+      console.log(base);
+      api.delete('base/v1/delete/' + base[0].id);
     };
 
-    // Post data to api
+    // Insert New or Edit Data (Base) on API
     $scope.submit = function () {
        var newBase = $scope.base;
-       if(newBase.id !== undefined){
+       if(newBase.id !== undefined) {
          api.put('base/v1/update', newBase)
           .success(function(response){
             console.log(response);
           })
-          .error(function(err){
-            console.log(err);
+          .catch(function(error) {
+            console.log(error.data);
+            if(error.data === "Not Found"){
+              $scope.error = "Não foi possível efetuar o procedimento.";  
+            } else {
+              $scope.error = error.data;
+            }
           });
        } else {
         api.post('base/v1/new', newBase)
-          .success(function(response){
+          .success(function(response) {
             response = {};
             response.nome = $scope.base.nome;
             response.id = 10;
             $scope.list.push(response);
+
           })
-          .error(function(err){
-            console.log(err);
+          .catch(function(error){
+            console.log(error.data);
+            if(error.data === "Not Found"){
+              $scope.error = "Não foi possível efetuar o procedimento.";  
+            } else {
+              $scope.error = error.data.error.message;
+            }
           });
        }
     };
 
+    //load all the itens
     $scope.load = function() {
       api.get('base/v1/get')
         .success(function(response){
-          console.log(response);
+          console.log("Loading all Data...");
           $scope.list = response.items;
-        })
-        .error(function(err){
-          console.log(err);
+
+        }).catch(function(response){
+          console.log(response.data);
+          $scope.error = response.data;
         });
     };
 
@@ -74,3 +86,4 @@ angular.module('adminApp')
     $scope.load();
 
   });
+

@@ -7,9 +7,9 @@
    <div ng-if="error" role="alert" class="text-danger" style="color: red;">
      <p class="center-align red" >{{ error }}</p>
    </div>
-   
+
     <div layout="column" layout-padding ng-cloak>
-      <form novalidate ng-submit="submit()" name="predio">
+      <form novalidate ng-submit="submit()" name="formPredio">
         <md-content class="md-no-momentum">
           <md-input-container class="md-icon-float md-block">
             <label for="nome">Nome</label>
@@ -21,7 +21,7 @@
           <select ng-options="base as base.nome for base in bases track by base.id" ng-model="base" required></select>
         </div>
 
-        <input ng-disabled="predio.$invalid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
+        <input ng-disabled="formPredio.$invalid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
         <md-button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" aria-label="Limpar">Limpar</md-button>
       </form>
     </div>

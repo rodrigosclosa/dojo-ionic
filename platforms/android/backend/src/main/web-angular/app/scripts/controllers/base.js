@@ -61,7 +61,7 @@ angular.module('adminApp')
           .catch(function(error) {
             console.log(error.data);
             if(error.data === "Not Found"){
-              $scope.error = "Não foi possível efetuar o procedimento.";  
+              $scope.error = "Não foi possível efetuar o procedimento.";
             } else {
               $scope.error = error.data;
             }
@@ -73,12 +73,11 @@ angular.module('adminApp')
             response.nome = $scope.base.nome;
             response.id = 10;
             $scope.list.push(response);
-
           })
           .catch(function(error){
             console.log(error.data);
             if(error.data === "Not Found"){
-              $scope.error = "Não foi possível efetuar o procedimento.";  
+              $scope.error = "Não foi possível efetuar o procedimento.";
             } else {
               $scope.error = error.data.error.message;
             }

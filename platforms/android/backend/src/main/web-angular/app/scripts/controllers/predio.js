@@ -60,7 +60,8 @@ angular.module('adminApp')
       var predio = $scope.predios.splice($scope.predios.indexOf(item), 1);
       console.log(predio);
       api.delete('predio/v1/delete/' + predio[0].id);
-      $scope.error = "A Base foi deletada corretamente";
+      $scope.error = 'A Base foi deletada corretamente';
+      $scope.load();
     };
 
     // Insert New or Edit Data (Predio) on API
@@ -88,10 +89,11 @@ angular.module('adminApp')
             response.nome = $scope.predio.nome;
             response.base = $scope.base;
             $scope.bases.push(response);
+            $scope.load();
           })
           .catch(function(error){
             console.log('Erro ao cadastrar...');
-            $scope.error = "Erro ao Cadastrar - " + error.data;
+            $scope.error = 'Erro ao Cadastrar - ' + error.data;
           });
         }
     };

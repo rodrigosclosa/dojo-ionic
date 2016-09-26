@@ -9,7 +9,7 @@
    </div>
 
   <div layout="column" layout-padding ng-cloak>
-    <form novalidate ng-submit="submit()" name="base">
+    <form novalidate ng-submit="submit()" name="formBase">
       <md-content class="md-no-momentum">
         <md-input-container class="md-icon-float md-block">
           <label for="nome">Nome </label>
@@ -17,8 +17,8 @@
 
         </md-input-container>
       </md-content>
-    
-      <input ng-disabled="base.$invalid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
+
+      <input ng-disabled="formBase.$invalid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
       <md-button ng-click="Clean()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" aria-label="Limpar">Limpar</md-button>
     </form>
   </div>
@@ -29,11 +29,11 @@
       <span class="mdl-list__item-primary-content">
         {{ item.nome }}
       </span>
-      
+
       <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="editar(item)" aria-label="Editar">
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
       </md-button>
-      
+
       <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="excluir(item)" aria-label="Excluir">
         <i class="fa fa-trash" aria-hidden="true"></i>
       </md-button>

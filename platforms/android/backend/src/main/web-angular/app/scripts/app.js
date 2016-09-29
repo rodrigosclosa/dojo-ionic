@@ -10,7 +10,7 @@
  * Main module of the application.
  */
 angular
-  .module('adminApp', [
+  .module('adminApp','app.services', [
     'ngAnimate',
     'ngAria',
     'ngCookies',

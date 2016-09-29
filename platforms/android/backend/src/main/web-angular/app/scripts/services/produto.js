@@ -4,10 +4,8 @@ angular.module('app.services', [])
   // Might use a resource here that returns a JSON array
 
   // TODO: fazer a instancia do google para o endpoint produto
-  var retorno = {
-      items: {},
-      error: {}
-  };
+
+
 
 
   return {

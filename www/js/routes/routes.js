@@ -28,6 +28,34 @@ angular.module('app.routes', [])
         }
       }
     })
+
+    .state('app.search', {
+      url: '/search',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/search.html',
+          controller: 'SearchCtrl'
+        },
+        'footerContent': {
+          templateUrl: 'templates/footerbar.html',
+          controller: 'footerBarCtrl'
+        }
+      }
+    })
+
+    .state('app.bases', {
+      url: '/bases',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/bases.html',
+          controller: 'BaseCtrl'
+        },
+        'footerContent': {
+          templateUrl: 'templates/footerbar.html',
+          controller: 'footerBarCtrl'
+        }
+      }
+    })
     
     .state('app.detalhesProduto', {
       url: '/produto/:id',

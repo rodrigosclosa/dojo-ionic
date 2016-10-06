@@ -6,5 +6,12 @@ angular.module('app.services', [])
 
 .service('BlankService', [function(){
 
-}]);
+}])
 
+.service('UsuarioService', [function(){
+    return {
+        getId: function() {
+            return 5639445604728832;
+        }
+    }
+}]);

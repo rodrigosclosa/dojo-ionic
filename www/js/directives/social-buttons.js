@@ -13,8 +13,8 @@ angular.module('app.directives')
         var usuario = JSON.parse($scope.produto);
 
         $scope.like = function(){
-            $scope.produto = JSON.parse($scope.produto);
-            SocialButtons.like(parseInt($scope.produto.id));
+            var produto = JSON.parse($scope.produto);
+            SocialButtons.like(parseInt(produto.id));
         }
 
         $scope.bookmark = function(id){
@@ -31,19 +31,20 @@ angular.module('app.directives')
             console.log("sendemail",$scope.produto);
         }
     })
-    .service('SocialButtons', function(api){
+
+    .service('SocialButtons', function(api, UsuarioService){
         return {
             bookmark :function(id){
                 return api.post('usuarioFavorito/v1/new', {
-                    idUsuario : 5639445604728832,
-                    idUsuarioFavorito : 5664902681198592
+                    idUsuario : UsuarioService.getId(),
+                    idUsuarioFavorito : id
                 })
 
             },
 
             like : function(id){
                 return api.post('usuarioLike/v1/like', {
-                    idUsuario : 5639445604728832,
+                    idUsuario : UsuarioService.getId(),
                     idProduto : id
                 })
             }

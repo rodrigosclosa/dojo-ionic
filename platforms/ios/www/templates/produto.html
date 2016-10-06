@@ -4,23 +4,15 @@
             <img class="full-image" src="http://lorempixel.com/400/200/">
             <h2>{{produto.nome}}</h2>
             <p>
-                <h1>
-                    <i class="ion-android-favorite-outline" ng-click="like(produto)"></i>
-                    <i class="ion-android-bookmark" ng-click="bookmark(produto)"></i>
-                    <i class="ion-ios-email-outline" ng-click="email(produto)"></i>
-                </h1>
+               <social-buttons produto="{{produto}}"></social-buttons>
             </p>
             <p>
-                Descrição do produto bla bla bla bla bla b
-                blabfsf s g d e rt er t er ter te rt er t erter
-                tekrjhtkejrhtk ert ekrt ekrt ekr tker tker tker tker tke
-                te rt ekrnt ekrn tkert e
+                {{produto.descricao}}
             </p>
             <p>
                 <a href="#" class="subdued">1 Quantidade</a>
                 <a href="#" class="subdued">Algum link aqui</a>
             </p>
-
             <div class="item item-avatar">
                 <img src="http://lorempixel.com/50/50">
                 <h2>Vendedor: {{produto.usuario.nome}}</h2>

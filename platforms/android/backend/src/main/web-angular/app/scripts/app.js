@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 /**
@@ -9,11 +10,12 @@
  * Main module of the application.
  */
 angular
-  .module('adminApp', [
+  .module('adminApp','app.services', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
     'ngMessages',
+    'ngMaterial',
     'ngResource',
     'ngRoute',
     'ngSanitize',
@@ -43,7 +45,12 @@ angular
         templateUrl: 'views/produtos.html',
         controller: 'ProdutosCtrl'
       })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+       })
       .otherwise({
         redirectTo: '/'
       });
   });
+})();

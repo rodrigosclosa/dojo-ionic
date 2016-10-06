@@ -2,6 +2,8 @@ package com.ciandt.mercadocit.backend.service;
 
 import com.ciandt.mercadocit.backend.dao.UsuarioLikeDao;
 import com.ciandt.mercadocit.backend.entity.UsuarioLike;
+import com.ciandt.mercadocit.backend.model.RetornoApiBase;
+import com.ciandt.mercadocit.backend.model.RetornoApiBoolean;
 import com.google.api.server.spi.response.ConflictException;
 import com.google.api.server.spi.response.NotFoundException;
 
@@ -71,6 +73,34 @@ public class UsuarioLikeService {
         }
 
         return usuarioLikeDao.insert(item);
+    }
+
+    public RetornoApiBoolean like(UsuarioLike item) throws ConflictException, NotFoundException {
+
+        RetornoApiBoolean retorno = new RetornoApiBoolean();
+
+        if(item == null)
+        {
+            throw new ConflictException("UsuarioLike nao informado.");
+        }
+        else if(item.getIdProduto() == null || item.getIdUsuario() == null)
+        {
+            throw new ConflictException("Id do UsuarioLike nao informado.");
+        }
+
+        UsuarioLike u = usuarioLikeDao.getProdutoFavoritoByUsuario(item.getIdProduto(), item.getIdUsuario());
+
+        if(u != null)
+        {
+            usuarioLikeDao.delete(u);
+            retorno.setValor(false);
+        }
+        else {
+            usuarioLikeDao.insert(item);
+            retorno.setValor(true);
+        }
+
+        return retorno;
     }
 
 

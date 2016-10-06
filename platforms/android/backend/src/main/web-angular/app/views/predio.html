@@ -1,36 +1,48 @@
-<h1>Predio</h1>
+ <md-toolbar >
+   <div class="md-toolbar-tools">
+     <h2 class="md-flex">Prédio</h1>
+    </div>
+  </md-toolbar>
+  <md-content flex layout-padding>
+   <div ng-if="error" role="alert" class="text-danger" style="color: red;">
+     <p class="center-align red" >{{ error }}</p>
+   </div>
 
-<form novalidate ng-submit="submit()">
-  <div class="mdl-textfield mdl-js-textfield">
-    <label class="mdl-textfield__label" for="nome">Name</label>
-    <input class="mdl-textfield__input" type="text" id="nome" ng-model="predio.nome">
-  </div>
-  <div class="mdl-textfield mdl-js-textfield">
-    <select ng-options="base as base.nome for base in bases track by base.id" ng-model="base"></select>
-  </div>
-  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
-  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Concluir">
+    <div layout="column" layout-padding ng-cloak>
+      <form novalidate ng-submit="submit()" name="formPredio">
+        <md-content class="md-no-momentum">
+          <md-input-container class="md-icon-float md-block">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" ng-model="predio.nome" required>
+          </md-input-container>
+        </md-content>
 
-  </input>
-</form>
+        <div class="mdl-textfield mdl-js-textfield">
+          <select ng-options="base as base.nome for base in bases track by base.id" ng-model="base" required></select>
+        </div>
 
-<!-- List -->
-<ul class="demo-list-item mdl-list">
-  <li class="mdl-list__item" ng-repeat="predio in predios track by $index">
-    <span class="mdl-list__item-primary-content">
-      {{ predio.nome  }}
-    </span>
-    <span class="mdl-list__item-primary-content">
-      {{ predio.base.nome  }}
-    </span>
+        <input ng-disabled="formPredio.$invalid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Adicionar">
+        <md-button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" aria-label="Limpar">Limpar</md-button>
+      </form>
+    </div>
+  <!-- List -->
+  <ul class="demo-list-item mdl-list">
+    <li class="mdl-list__item" ng-repeat="predio in predios track by $index">
+      <span class="mdl-list__item-primary-content">
+        {{ predio.nome  }}
+      </span>
+      <span class="mdl-list__item-primary-content">
+        {{ predio.base.nome  }}
+      </span>
 
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="editar(predio)">
-         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    </button>&nbsp;
+      <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="editar(predio)" aria-label="Editar">
+           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </md-button>
 
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="excluir(predio)">
-         <i class="fa fa-trash" aria-hidden="true"></i>
-    </button>
+      <md-button class="md-fab md-mini mdl-js-button mdl-js-ripple-effect" ng-click="excluir(predio)" aria-label="Excluir">
+           <i class="fa fa-trash" aria-hidden="true"></i>
+      </md-button>
 
-  </li>
-</ul>
+    </li>
+  </ul>
+</md-content>

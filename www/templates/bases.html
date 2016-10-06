@@ -1,0 +1,11 @@
+<ion-view view-title="Base">
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+   <h1>Bases</h1>
+   <p>Veja as Bases que o CI&T Market possui produtos disponiveis:</p>
+   <ul>
+ 		<li ng-repeat="item in list track by $index">
+   		{{ item.nome }}
+ 		</li>
+   </ul>
+  </ion-content>
+</ion-view>

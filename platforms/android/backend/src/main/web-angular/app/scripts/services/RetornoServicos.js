@@ -10,6 +10,7 @@ angular.module('app.services')
                 mensagem: ""
             }
         };
+        var callback;
         var successCallbackDefault = function (response) {
             var retorno = objeto;
             retorno.success = true;
@@ -34,6 +35,9 @@ angular.module('app.services')
         return {
             retorno: function () {
                 return objeto;
+            },
+            setCallbak: function(callback) {
+                callback = callback;
             },
             sucessoRetorno: function (response) {
                 return successCallbackDefault (response);

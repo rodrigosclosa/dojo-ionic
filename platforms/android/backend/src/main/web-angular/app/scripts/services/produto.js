@@ -14,6 +14,8 @@ angular.module('app.services', [])
     all: function(parametros, callback) {
         var retorno = RetornoServicos.retorno();
 
+        RetornoServicos.setCallback(callback);
+
         $http.get(urlBase + 'produto/v1/list', parametros)
           .success(RetornoServicos.sucessoRetorno)
           .error(sucessoRetorno.erroRetorno);

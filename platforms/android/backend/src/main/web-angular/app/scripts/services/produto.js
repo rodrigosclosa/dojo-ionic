@@ -1,6 +1,6 @@
 angular.module('app.services', [])
 
-.factory('Produto', function(RetornoServicos, api) {
+.factory('ProdutoService', function(RetornoServicos, api) {
   // Might use a resource here that returns a JSON array
 
   // TODO: fazer a instancia do google para o endpoint produto
@@ -8,30 +8,15 @@ angular.module('app.services', [])
     //Retorna a URL padrão dos serviços do Google App Engine
     var urlBase = ProdutoConfig.urlServicos();
 
+    
+
   return {
     all: function(parametros, callback) {
         var retorno = RetornoServicos.retorno();
 
         $http.get(urlBase + 'produto/v1/list', parametros)
-          .success(function (response) {
-            retorno.success = true;
-            retorno.items = response.items;
-
-            if (typeof (callback) === "function") {
-              callback(retorno);
-            }
-          })
-          .error(function (data, status) {
-            retorno.success = false;
-            retorno.erro = {
-              codigo: status,
-              mensagem: data
-            };
-
-            if (typeof (callback) === "function") {
-              callback(retorno);
-            }
-          });
+          .success(RetornoServicos.sucessoRetorno)
+          .error(sucessoRetorno.erroRetorno);
       },
       //Função para inserir ou atualizar uma planta
       addOrUpdate: function (item, callback) {

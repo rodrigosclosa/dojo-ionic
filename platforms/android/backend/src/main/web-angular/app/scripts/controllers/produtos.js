@@ -7,7 +7,7 @@
  * Controller of the adminApp
  */
 angular.module('adminApp')
-    .controller('ProdutosCtrl',function($scope, api) {
+    .controller('ProdutosCtrl',function($scope, ProdutoService) {
 
     //created an array to avoid the page load waiting for an array
     $scope.produtos = [];

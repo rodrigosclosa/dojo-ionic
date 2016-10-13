@@ -12,14 +12,14 @@ angular.module('app.controllers')
           console.log(err)
       });
 
-      api.get('base/v1/get/5629499534213120/predios')
+      /*api.get('base/v1/get/5629499534213120/predios')
       .success(function(response){
           console.log(response)
           $scope.predios = response.items;
       })
       .error(function(err){
           console.log(err)
-      });
+      });*/
     }
     
     $scope.produtos = [];

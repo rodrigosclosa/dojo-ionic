@@ -1,4 +1,7 @@
-angular.module('app.config', [])
+'use strict';
+
+
+angular.module('app.config',[])
 //Arquivo de configurações padrões do Projeto
 .factory('ProdutoConfig', function($http) {
 

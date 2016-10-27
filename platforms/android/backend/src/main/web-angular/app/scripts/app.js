@@ -10,7 +10,7 @@
  * Main module of the application.
  */
 angular
-  .module('adminApp','app.services', [
+  .module('adminApp',[
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -19,7 +19,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'app.services',
+    'app.Retorno',
+    'app.config'
   ])
   .config(function ($routeProvider) {
     $routeProvider

@@ -1,6 +1,7 @@
-angular.module('app.services', [])
+'use strict';
+angular.module('app.services',[])
 
-.factory('ProdutoService', function(RetornoServicos, api) {
+.factory('ProdutoService', function(RetornoServicos, api,ProdutoConfig, $http) {
   // Might use a resource here that returns a JSON array
 
   // TODO: fazer a instancia do google para o endpoint produto
@@ -14,9 +15,9 @@ angular.module('app.services', [])
     all: function(parametros, callback) {
         var retorno = RetornoServicos.retorno();
 
-        $http.get(urlBase + 'produto/v1/list', parametros)
+        $http.get(urlBase + 'produto/v1/get', parametros)
           .success(RetornoServicos.sucessoRetorno)
-          .error(sucessoRetorno.erroRetorno);
+          .error(RetornoServicos.erroRetorno);
       },
       //Função para inserir ou atualizar uma planta
       addOrUpdate: function (item, callback) {

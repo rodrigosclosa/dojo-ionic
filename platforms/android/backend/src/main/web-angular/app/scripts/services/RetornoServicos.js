@@ -1,4 +1,5 @@
-angular.module('app.services')
+'use strict';
+angular.module('app.Retorno',[])
 
     //Objeto padrão de retorno dos serviços
     .factory('RetornoServicos', function () {
@@ -10,7 +11,7 @@ angular.module('app.services')
                 mensagem: ""
             }
         };
-        var successCallbackDefault = function (response) {
+        var successCallbackDefault = function (response, callback) {
             var retorno = objeto;
             retorno.success = true;
             retorno.items = response.items;
@@ -19,7 +20,7 @@ angular.module('app.services')
                 callback(retorno);
             }
         };
-        var errorCallbackDefault = function (data, status) {
+        var errorCallbackDefault = function (data, status, callback) {
             var retorno = objeto;
             retorno.success = false;
             retorno.erro = {
@@ -36,9 +37,11 @@ angular.module('app.services')
                 return objeto;
             },
             sucessoRetorno: function (response) {
+                console.log("Teste 2")
                 return successCallbackDefault (response);
             },
             erroRetorno: function (data, status) {
+                                console.log("Teste 1")
                 return errorCallbackDefault (data, status);
             }
         };

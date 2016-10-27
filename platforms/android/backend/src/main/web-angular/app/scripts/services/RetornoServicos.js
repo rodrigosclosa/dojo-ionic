@@ -36,6 +36,9 @@ angular.module('app.Retorno',[])
             retorno: function () {
                 return objeto;
             },
+            setCallbak: function(callback) {
+                callback = callback;
+            },
             sucessoRetorno: function (response) {
                 console.log("Teste 2")
                 return successCallbackDefault (response);
